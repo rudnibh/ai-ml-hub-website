@@ -2,7 +2,6 @@ import React from 'react';
 import { Sparkles } from 'lucide-react';
 import { AimlLogo } from './ui/AimlLogo';
 import { motion } from 'framer-motion';
-import { ActivityCard } from '../components/home/ActivityCard';
 import { useSpring, animated } from '@react-spring/web';
 
 export default function Hero() {

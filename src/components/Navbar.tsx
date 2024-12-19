@@ -35,12 +35,6 @@ export default function Navbar() {
                 href="#meetings"
                 className="text-gray-300 hover:text-purple-400 transition-colors"
               >
-                Projectss
-              </a>
-              <a
-                href="#projects"
-                className="text-gray-300 hover:text-purple-400 transition-colors"
-              >
                 Meetings
               </a>
               <a

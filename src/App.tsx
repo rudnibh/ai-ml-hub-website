@@ -9,8 +9,6 @@ import AboutSection from './components/AboutSection';
 import Meetings from './components/Meetings';
 import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
-import ProjectsPage from './pages/ProjectsPage';
-
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +33,6 @@ export default function App() {
         <Hero />
         <UpcomingEvent />
         <Activities />
-        <ProjectsPage />
         <EventsSection />
         <AboutSection />
         <Meetings />
