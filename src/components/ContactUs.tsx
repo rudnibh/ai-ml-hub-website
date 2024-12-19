@@ -48,7 +48,7 @@ export default function ContactUs() {
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Mail className="h-6 w-6 text-purple-200" />
-                  <span>contact@example.com</span>
+                  <span>ai/mlhubjiit@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="h-6 w-6 text-purple-200" />
@@ -56,7 +56,7 @@ export default function ContactUs() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-6 w-6 text-purple-200" />
-                  <span>123 AI Street, Tech City</span>
+                  <span>JIIT Noida, Sec - 62</span>
                 </div>
               </div>
             </div>
