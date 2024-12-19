@@ -39,7 +39,7 @@ export default function ContactUs() {
           Get in Touch
         </h2>
       
-        <Card className="overflow-hidden transform hover:scale-[1.02] transition-transform duration-300 hover:shadow-purple-500/50">
+        <Card className="overflow-hidden transform transition-transform duration-300">
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/3 bg-gradient-to-br from-purple-600 to-pink-600 p-8 text-white">
               <p className="mb-8 text-purple-100">
