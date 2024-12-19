@@ -55,13 +55,13 @@ export const teamData = {
     },
     heads: {
       management: {
-        name: 'Emily Davis',
+        name: 'Kushagra Tewari',
         role: 'Management Head',
         email: 'emily.d@university.edu',
         imageUrl: images.team.placeholders.MangementHead,
       },
       marketing: {
-        name: 'David Wilson',
+        name: 'Sanskar Sahu',
         role: 'Marketing Head',
         email: 'david.w@university.edu',
         imageUrl: images.team.placeholders.MarketingHead,
