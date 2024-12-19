@@ -8,6 +8,7 @@ import EventsSection from './components/EventsSection';
 import AboutSection from './components/AboutSection';
 import Meetings from './components/Meetings';
 import Contact from './components/Contact';
+import ContactUs from './components/ContactUs';
 import ParticleBackground from './components/ParticleBackground';
 
 export default function App() {
@@ -34,8 +35,9 @@ export default function App() {
         <UpcomingEvent />
         <Activities />
         <EventsSection />
-        <AboutSection />
         <Meetings />
+        <AboutSection />
+        <ContactUs />
         <Contact />
       </main>
       <footer className="relative bg-gray-900 border-t border-purple-900/30 text-gray-400 py-6 text-center">
