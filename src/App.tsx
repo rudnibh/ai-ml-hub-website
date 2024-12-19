@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import UpcomingEvent from './components/UpcomingEvent';
 import Activities from './components/Activities';
 import EventsSection from './components/EventsSection';
+import ProjectsSection from './components/ProjectsSection';
 import AboutSection from './components/AboutSection';
 import Meetings from './components/Meetings';
 import Contact from './components/Contact';
@@ -35,6 +36,7 @@ export default function App() {
         <UpcomingEvent />
         <Activities />
         <EventsSection />
+        <ProjectsSection />
         <Meetings />
         <AboutSection />
         <ContactUs />

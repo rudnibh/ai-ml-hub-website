@@ -5,6 +5,24 @@ import { AimlLogo } from './ui/AimlLogo';
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const menuItems = [
+    { href: '#about', label: 'About' },
+    { href: '#activities', label: 'Activities' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#achievements', label: 'Achievements' },
+    { href: '#meetings', label: 'Meetings' },
+    { href: '#contactus', label: 'Contact' },
+  ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed w-full z-10 px-4 py-3">
       <div className="max-w-7xl mx-auto">
@@ -18,60 +36,18 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-               <a
-		  href="#about"
-		  onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#about');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-		  className="text-gray-300 hover:text-purple-400 transition-colors"
-		>
-		  About
-	      </a>
-
-              <a
-                href="#activities"
-                onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#activities');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                className="text-gray-300 hover:text-purple-400 transition-colors"
-              >
-                Activities
-              </a>
-              <a
-                href="#meetings"
-                onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#meetings');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                className="text-gray-300 hover:text-purple-400 transition-colors"
-              >
-                Meetings
-              </a>
-              <a
-                href="#contactus"
-                onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#contactus');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                className="text-gray-300 hover:text-purple-400 transition-colors"
-              >
-                Contact
-              </a>
+            <div className="hidden md:flex items-center space-x-6">
+              {menuItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="relative text-gray-300 hover:text-purple-400 transition-colors group py-2"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                </a>
+              ))}
             </div>
 
             {/* Mobile Menu Button */}
@@ -93,58 +69,16 @@ export default function Navbar() {
           {isOpen && (
             <div className="md:hidden border-t border-purple-900/20">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <a
-                  href="#about"
-                  onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#about');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                  className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#activities"
-                  onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#activities');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                  className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  Activities
-                </a>
-                <a
-                  href="#meetings"
-                  onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#meetings');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                  className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  Meetings
-                </a>
-                <a
-                  href="#contactus"
-                  onClick={(e) => {
-		    e.preventDefault(); // Prevent default jump
-		    const target = document.querySelector('#contactus');
-		    if (target) {
-		      target.scrollIntoView({ behavior: 'smooth' });
-		    }
-		  }}
-                  className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
-                >
-                  Contact
-                </a>
+                {menuItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </div>
             </div>
           )}
