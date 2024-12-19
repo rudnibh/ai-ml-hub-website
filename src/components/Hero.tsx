@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="relative">
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-700 rounded-full blur-2xl opacity-35 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-          <AimlLogo className="h-42 w-42 text-purple-400 mx-auto mb-6 animate-float" />
+          <AimlLogo className="h-40 w-40 text-purple-400 mx-auto mb-6 animate-float" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 animate-gradient">
           AI/ML HUB
