@@ -3,6 +3,7 @@ import { teamData } from '../data/team';
 import { Container } from '../components/ui/Container';
 import { GradientHeading } from '../components/ui/GradientHeading';
 import { Card } from '../components/ui/Card';
+import { StyledText} from '../components/ui/StyledText';
 
 export default function About() {
   return (
@@ -12,7 +13,7 @@ export default function About() {
           <GradientHeading>About AI/ML HUB</GradientHeading>
           <div className="max-w-3xl mx-auto text-center mb-20">
             <p className="text-lg text-gray-300 animate-float">
-              AI/ML HUB is a student-led organization dedicated to fostering
+            <StyledText variant="highlight">AI/ML HUB</StyledText>  is a student-led organization dedicated to fostering
               innovation and learning in Artificial Intelligence and Machine
               Learning. We bring together passionate students to explore, learn,
               and grow in the field of AI/ML through workshops, projects, and
