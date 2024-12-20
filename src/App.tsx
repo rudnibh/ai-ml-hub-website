@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -13,6 +13,35 @@ import ContactUs from './components/ContactUs';
 import ParticleBackground from './components/ParticleBackground';
 import Projects from './pages/Projects';
 import Achievements from './pages/Achievements';
+
+function MainContent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if we have a scrollTo target in the location state
+    if (location.state && location.state.scrollTo) {
+      const target = document.querySelector(location.state.scrollTo);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Clear the state after scrolling
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
+  return (
+    <main className="relative pt-16">
+      <Hero />
+      <UpcomingEvent />
+      <Activities />
+      <EventsSection />
+      <AboutSection />
+      <Meetings />
+      <ContactUs />
+      <Contact />
+    </main>
+  );
+}
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -30,23 +59,12 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-agray-900 text-white">
+      <div className="min-h-screen bg-gray-900 text-white">
         <ParticleBackground />
         <div className="fixed inset-0 grid-background pointer-events-none"></div>
         <Navbar />
         <Routes>
-          <Route path="/" element={
-            <main className="relative pt-16">
-              <Hero />
-              <UpcomingEvent />
-              <Activities />
-              <EventsSection />
-              <AboutSection />
-              <Meetings />
-              <ContactUs />
-              <Contact />
-            </main>
-          } />
+          <Route path="/" element={<MainContent />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/achievements" element={<Achievements />} />
         </Routes>
