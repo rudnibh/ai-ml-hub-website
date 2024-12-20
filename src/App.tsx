@@ -52,7 +52,6 @@ export default function App() {
         </Routes>
         <footer className="relative bg-gray-900 border-t border-purple-900/30 text-gray-400 py-6 text-center">
           <p>&copy; {new Date().getFullYear()} AIML HUB. All rights reserved.</p>
-          <p>By- HARSIMRAN SINGH</p>
         </footer>
       </div>
     </Router>
