@@ -1,11 +1,12 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AimlLogo } from './ui/AimlLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
     { href: '/#about', label: 'About' },
@@ -17,13 +18,19 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     if (href.startsWith('/#')) {
-      e.preventDefault();
-      const target = document.querySelector(href.substring(1));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
+      if (location.pathname !== '/') {
+        // If we're not on the home page, navigate there first
+        navigate('/', { state: { scrollTo: href.substring(1) } });
+      } else {
+        // If we're already on the home page, just scroll
+        const target = document.querySelector(href.substring(1));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       }
+      setIsOpen(false);
     }
   };
 
