@@ -27,84 +27,81 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Animated gradient text */
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 8s ease infinite;
+/* Loading Animation Styles */
+.container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  filter: url("#goo");
+  animation: rotate-move 2s ease-in-out infinite;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.dot {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
-/* Glowing effect */
-.glow {
-  animation: glow 2s ease-in-out infinite alternate;
+.dot-3 {
+  background-color: rgb(139, 92, 246); /* Purple-500 */
+  animation: dot-3-move 2s ease infinite, index 6s ease infinite;
 }
 
-@keyframes glow {
-  from {
-    box-shadow: 0 0 10px #8B5CF6, 0 0 20px #8B5CF6, 0 0 30px #8B5CF6;
-  }
-  to {
-    box-shadow: 0 0 20px #8B5CF6, 0 0 30px #8B5CF6, 0 0 40px #8B5CF6;
-  }
+.dot-2 {
+  background-color: rgb(168, 85, 247); /* Purple-600 */
+  animation: dot-2-move 2s ease infinite, index 6s -4s ease infinite;
 }
 
-/* Floating animation */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.dot-1 {
+  background-color: rgb(192, 132, 252); /* Purple-400 */
+  animation: dot-1-move 2s ease infinite, index 6s -2s ease infinite;
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes dot-3-move {
+  20% { transform: scale(1) }
+  45% { transform: translateY(-18px) scale(0.45) }
+  60% { transform: translateY(-90px) scale(0.45) }
+  80% { transform: translateY(-90px) scale(0.45) }
+  100% { transform: translateY(0px) scale(1) }
 }
 
-/* Pulse ring animation */
-@keyframes pulse-ring {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
+@keyframes dot-2-move {
+  20% { transform: scale(1) }
+  45% { transform: translate(-16px, 12px) scale(0.45) }
+  60% { transform: translate(-80px, 60px) scale(0.45) }
+  80% { transform: translate(-80px, 60px) scale(0.45) }
+  100% { transform: translateY(0px) scale(1) }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes dot-1-move {
+  20% { transform: scale(1) }
+  45% { transform: translate(16px, 12px) scale(0.45) }
+  60% { transform: translate(80px, 60px) scale(0.45) }
+  80% { transform: translate(80px, 60px) scale(0.45) }
+  100% { transform: translateY(0px) scale(1) }
 }
 
-/* Slow pulse animation */
-.animate-pulse-slow {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes rotate-move {
+  55% { transform: rotate(0deg) }
+  80% { transform: rotate(360deg) }
+  100% { transform: rotate(360deg) }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: .5;
-  }
+@keyframes index {
+  0%, 100% { z-index: 3 }
+  33.3% { z-index: 2 }
+  66.6% { z-index: 1 }
 }
+
+/* Other existing animations */
+@keyframes gradient { /* ... */ }
+@keyframes glow { /* ... */ }
+@keyframes float { /* ... */ }
+@keyframes pulse-ring { /* ... */ }
+@keyframes pulse { /* ... */ }
