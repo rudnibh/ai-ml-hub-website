@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
-import { AimlLogo } from './ui/AimlLogo';
+import { FloatingLogo } from './ui/FloatingLogo';
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -24,9 +24,9 @@ export default function Hero() {
         <div className="honeycomb-pattern"></div>
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="relative">
+        <div className="relative flex justify-center">
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-700 rounded-full blur-2xl opacity-35 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-          <AimlLogo className="h-41 w-41 text-purple-400 mx-auto mb-6 animate-float" />
+          <FloatingLogo className="h-41 w-41 text-purple-400 mb-6" />
         </div>
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 animate-gradient">
           AI/ML HUB
