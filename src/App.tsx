@@ -6,25 +6,23 @@ import Hero from './components/Hero';
 import UpcomingEvent from './components/UpcomingEvent';
 import Activities from './components/Activities';
 import EventsSection from './components/EventsSection';
-import AboutSection from './components/AboutSection';
 import Meetings from './components/Meetings';
 import Contact from './components/Contact';
 import ContactUs from './components/ContactUs';
 import ParticleBackground from './components/ParticleBackground';
 import Projects from './pages/Projects';
 import Achievements from './pages/Achievements';
+import About from './pages/About';
 
 function MainContent() {
   const location = useLocation();
 
   useEffect(() => {
-    // Check if we have a scrollTo target in the location state
     if (location.state && location.state.scrollTo) {
       const target = document.querySelector(location.state.scrollTo);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
-      // Clear the state after scrolling
       window.history.replaceState({}, document.title);
     }
   }, [location]);
@@ -35,7 +33,6 @@ function MainContent() {
       <UpcomingEvent />
       <Activities />
       <EventsSection />
-      <AboutSection />
       <Meetings />
       <ContactUs />
       <Contact />
@@ -65,6 +62,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<MainContent />} />
+          <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/achievements" element={<Achievements />} />
         </Routes>
