@@ -9,7 +9,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   const menuItems = [
-    { href: '/#about', label: 'About' },
+    { href: '/about', label: 'About' },
     { href: '/#activities', label: 'Activities' },
     { href: '/projects', label: 'Projects' },
     { href: '/achievements', label: 'Achievements' },
@@ -21,17 +21,17 @@ export default function Navbar() {
     e.preventDefault();
     if (href.startsWith('/#')) {
       if (location.pathname !== '/') {
-        // If we're not on the home page, navigate there first
         navigate('/', { state: { scrollTo: href.substring(1) } });
       } else {
-        // If we're already on the home page, just scroll
         const target = document.querySelector(href.substring(1));
         if (target) {
           target.scrollIntoView({ behavior: 'smooth' });
         }
       }
-      setIsOpen(false);
+    } else {
+      navigate(href);
     }
+    setIsOpen(false);
   };
 
   return (
