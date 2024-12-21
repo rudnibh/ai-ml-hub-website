@@ -6,8 +6,8 @@ export interface TeamMember {
 }
 
 export interface TeamHeads {
-  management: TeamMember;
-  marketing: TeamMember;
+  management: TeamMember[];
+  marketing: TeamMember[];
   technical: TeamMember[];
   digital: TeamMember[];
 }
@@ -21,6 +21,7 @@ export interface CoreTeam {
 
 export interface TeamData {
   facultyAdvisor: TeamMember;
+  founders: TeamMember[];
   seniorAdvisors: TeamMember[];
   coreTeam: CoreTeam;
 }
