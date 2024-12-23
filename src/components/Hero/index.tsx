@@ -1,16 +1,20 @@
 import React from 'react';
 import { useSpring } from '@react-spring/web';
-import { Sparkles } from 'lucide-react';
-import { AnimatedText, AnimatedElement, AnimatedButton } from '../ui/AnimatedElement';
-import { StyledText } from '../ui/StyledText';
+import { motion } from 'framer-motion';
 import { ParallaxBackground } from './ParallaxBackground';
 import { FloatingElements } from './FloatingElements';
-import { AimlLogo } from '../ui/AimlLogo';
-
-// ... rest of imports
+import { AnimatedDescription } from './AnimatedDescription';
+import { CTAButton } from './CTAButton';
+import { AnimatedLogo } from './AnimatedLogo';
 
 export default function Hero() {
-  // ... existing code
+  const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }));
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const x = (e.clientX - window.innerWidth / 2) / 50;
+    const y = (e.clientY - window.innerHeight / 2) / 50;
+    set({ xy: [x, y] });
+  };
 
   return (
     <div 
@@ -18,34 +22,31 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
     >
       <ParallaxBackground xy={xy} />
+
+      {/* Animated Grid Pattern */}
       <div className="absolute inset-0">
         <div className="honeycomb-pattern animate-pulse-slow" />
       </div>
 
+      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <AnimatedElement delay={0.2}>
-          <AimlLogo className="h-41 w-41 text-purple-400 mx-auto mb-6 animate-float" />
-        </AnimatedElement>
+        <AnimatedLogo xy={xy} />
 
-        <AnimatedText 
-          className="text-4xl md:text-6xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
-          stagger={0.1}
+        {/* Animated Title */}
+        <motion.h1
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl md:text-6xl font-bold text-white mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 animate-gradient"
         >
-          <StyledText variant="highlight">AI/ML HUB</StyledText>
-        </AnimatedText>
+          AI/ML HUB
+        </motion.h1>
 
-        <AnimatedElement delay={0.4} className="max-w-3xl mx-auto">
-          <p className="text-xl md:text-2xl text-gray-300 mb-8">
-            Welcome to the <StyledText variant="underline">AIML Hub at JIIT</StyledText>! 
-            A space for <StyledText variant="highlight" color="pink">innovation</StyledText>, 
-            <StyledText variant="highlight" color="yellow">learning</StyledText>, and
-            <StyledText variant="highlight">collaboration</StyledText> in Artificial Intelligence 
-            and Machine Learning.
-          </p>
-        </AnimatedElement>
-
-        {/* ... rest of the component */}
+        <AnimatedDescription text="Welcome to the AIML Hub at JIIT!" />
+        <CTAButton />
       </div>
+
+      <FloatingElements />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from '../components/ui/Container';
 import { TeamSection } from '../components/AboutSection/TeamSection';
 import { GradientHeading } from '../components/ui/GradientHeading';
-import { StyledText } from '../components/ui/StyledText';
 import { motion } from 'framer-motion';
 import { teamData } from '../data/team';
 
@@ -11,7 +10,7 @@ export default function About() {
     <div className="min-h-screen bg-gray-900 text-white pt-20">
       <Container>
         <section id="about" className="relative py-20">
-          <GradientHeading>About <StyledText variant="highlight">AI/ML HUB</StyledText></GradientHeading>
+          <GradientHeading>About AI/ML HUB</GradientHeading>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -21,11 +20,9 @@ export default function About() {
             className="max-w-3xl mx-auto text-center mb-20"
           >
             <p className="text-lg text-gray-300">
-              <StyledText variant="highlight" color="purple">AI/ML HUB</StyledText> is a 
-              <StyledText variant="emphasis"> dynamic student-led organization</StyledText> at JIIT dedicated to
-              fostering <StyledText variant="highlight" color="pink">innovation</StyledText> and 
-              <StyledText variant="highlight" color="yellow"> learning</StyledText> in Artificial Intelligence and
-              Machine Learning. We bring together <StyledText variant="underline">passionate students</StyledText> to explore
+              AI/ML HUB is a dynamic student-led organization at JIIT dedicated to
+              fostering innovation and learning in Artificial Intelligence and
+              Machine Learning. We bring together passionate students to explore
               cutting-edge technologies, collaborate on exciting projects, and
               grow together in the field of AI/ML.
             </p>
