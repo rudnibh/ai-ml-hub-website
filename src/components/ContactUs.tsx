@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, AlertCircle, Check } from 'lucide-react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Card } from './ui/Card';
 
 export default function ContactUs() {
@@ -11,9 +12,60 @@ export default function ContactUs() {
     consent: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [verificationStep, setVerificationStep] = useState<'initial' | 'phone' | 'complete'>('initial');
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaVerified(!!value);
+  };
+
+  const handleSendOtp = async () => {
+    if (!formData.phone) {
+      setError('Please enter a valid phone number');
+      return;
+    }
+    
+    // Simulate OTP sending
+    setOtpSent(true);
+    setSuccess('OTP sent successfully!');
+    setTimeout(() => setSuccess(null), 3000);
+  };
+
+  const handleVerifyOtp = async () => {
+    if (!otp) {
+      setError('Please enter the OTP');
+      return;
+    }
+
+    // Simulate OTP verification
+    if (otp === '123456') { // In real implementation, verify against actual OTP
+      setVerificationStep('complete');
+      setSuccess('Phone number verified successfully!');
+      setTimeout(() => setSuccess(null), 3000);
+    } else {
+      setError('Invalid OTP');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
+    
+    if (!captchaVerified) {
+      setError('Please complete the CAPTCHA verification');
+      return;
+    }
+
+    if (verificationStep !== 'complete') {
+      setError('Please complete phone verification');
+      return;
+    }
+
+    // Handle form submission
+    setSuccess('Form submitted successfully!');
     console.log('Form submitted:', formData);
   };
 
@@ -35,7 +87,7 @@ export default function ContactUs() {
   return (
     <section id="contactus" className="relative pt-24 pb-20 z-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold text-center text-white mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+        <h2 className="text-3xl font-bold text-center text-white mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
           Get in Touch
         </h2>
       
@@ -62,6 +114,21 @@ export default function ContactUs() {
             </div>
             <div className="md:w-2/3 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Error/Success Messages */}
+                {error && (
+                  <div className="flex items-center space-x-2 text-red-400 bg-red-400/10 p-3 rounded-lg">
+                    <AlertCircle className="h-5 w-5" />
+                    <p>{error}</p>
+                  </div>
+                )}
+                {success && (
+                  <div className="flex items-center space-x-2 text-green-400 bg-green-400/10 p-3 rounded-lg">
+                    <Check className="h-5 w-5" />
+                    <p>{success}</p>
+                  </div>
+                )}
+
+                {/* Form Fields */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name <span className="text-purple-400">*</span>
@@ -77,6 +144,7 @@ export default function ContactUs() {
                     placeholder="Your name"
                   />
                 </div>
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email <span className="text-purple-400">*</span>
@@ -92,21 +160,58 @@ export default function ContactUs() {
                     placeholder="your@email.com"
                   />
                 </div>
+
+                {/* Phone Verification Section */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                     Phone <span className="text-purple-400">*</span>
                   </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                    placeholder="Your phone number"
-                  />
+                  <div className="space-y-4">
+                    <div className="flex space-x-2">
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        placeholder="Your phone number"
+                        disabled={verificationStep === 'complete'}
+                      />
+                      {verificationStep === 'initial' && (
+                        <button
+                          type="button"
+                          onClick={handleSendOtp}
+                          className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
+                        >
+                          Send OTP
+                        </button>
+                      )}
+                    </div>
+
+                    {otpSent && verificationStep !== 'complete' && (
+                      <div className="flex space-x-2">
+                        <input
+                          type="text"
+                          placeholder="Enter OTP"
+                          value={otp}
+                          onChange={(e) => setOtp(e.target.value)}
+                          className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                          maxLength={6}
+                        />
+                        <button
+                          type="button"
+                          onClick={handleVerifyOtp}
+                          className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors"
+                        >
+                          Verify
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message
@@ -121,6 +226,16 @@ export default function ContactUs() {
                     placeholder="Your message..."
                   />
                 </div>
+
+                {/* reCAPTCHA */}
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                    onChange={handleCaptchaChange}
+                    theme="dark"
+                  />
+                </div>
+
                 <div className="flex items-start">
                   <input
                     type="checkbox"
@@ -135,9 +250,11 @@ export default function ContactUs() {
                     <span className="text-purple-400">*</span>
                   </label>
                 </div>
+
                 <button
                   type="submit"
-                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2"
+                  disabled={!captchaVerified || verificationStep !== 'complete' || !formData.consent}
+                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10">Send Message</span>
                   <Send className="h-5 w-5" />

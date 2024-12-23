@@ -21,6 +21,16 @@ export function TeamSection({ data }: TeamSectionProps) {
         </div>
       </div>
 
+      {/* Founders */}
+      <div className="space-y-8">
+        <GradientHeading>Founders</GradientHeading>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {data.founders.map((founder, index) => (
+            <TeamMemberCard key={index} member={founder} isHighlighted />
+          ))}
+        </div>
+      </div>
+
       {/* Senior Advisors */}
       <div className="space-y-8">
         <GradientHeading>Senior Advisors</GradientHeading>
@@ -44,9 +54,24 @@ export function TeamSection({ data }: TeamSectionProps) {
 
         {/* Department Heads */}
         <div className="space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <TeamMemberCard member={data.coreTeam.heads.management} />
-            <TeamMemberCard member={data.coreTeam.heads.marketing} />
+          {/* Management Heads */}
+          <div>
+            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Management Heads</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {data.coreTeam.heads.management.map((head, index) => (
+                <TeamMemberCard key={`management-${index}`} member={head} />
+              ))}
+            </div>
+          </div>
+
+          {/* Marketing Heads */}
+          <div>
+            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Marketing Heads</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {data.coreTeam.heads.marketing.map((head, index) => (
+                <TeamMemberCard key={`marketing-${index}`} member={head} />
+              ))}
+            </div>
           </div>
 
           {/* Technical Heads */}
