@@ -7,26 +7,6 @@ export const teamData = {
     email: 'Mishra.Ashish@mail.jiit.ac.in',
     imageUrl: images.team.facultyAdvisor,
   },
-  founders: [
-    {
-      name: 'Aditya Kumar',
-      role: 'Founder',
-      email: 'aditya.kumar@mail.jiit.ac.in',
-      imageUrl: images.team.placeholders.founder1,
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Co-Founder',
-      email: 'priya.sharma@mail.jiit.ac.in',
-      imageUrl: images.team.placeholders.founder2,
-    },
-    {
-      name: 'Rahul Verma',
-      role: 'Co-Founder',
-      email: 'rahul.verma@mail.jiit.ac.in',
-      imageUrl: images.team.placeholders.founder3,
-    },
-  ],
   seniorAdvisors: [
     {
       name: 'Harsh Dhariwal',
