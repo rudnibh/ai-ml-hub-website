@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, AlertCircle, Check } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { Card } from './ui/Card';
 
 export default function ContactUs() {
@@ -13,15 +12,10 @@ export default function ContactUs() {
   });
 
   const [verificationStep, setVerificationStep] = useState<'initial' | 'phone' | 'complete'>('initial');
-  const [captchaVerified, setCaptchaVerified] = useState(false);
   const [otp, setOtp] = useState('');
   const [otpSent, setOtpSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-
-  const handleCaptchaChange = (value: string | null) => {
-    setCaptchaVerified(!!value);
-  };
 
   const handleSendOtp = async () => {
     if (!formData.phone) {
@@ -53,11 +47,6 @@ export default function ContactUs() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!captchaVerified) {
-      setError('Please complete the CAPTCHA verification');
-      return;
-    }
 
     if (verificationStep !== 'complete') {
       setError('Please complete phone verification');
@@ -227,15 +216,6 @@ export default function ContactUs() {
                   />
                 </div>
 
-                {/* reCAPTCHA */}
-                <div className="flex justify-center">
-                  <ReCAPTCHA
-                    sitekey="YOUR_RECAPTCHA_SITE_KEY"
-                    onChange={handleCaptchaChange}
-                    theme="dark"
-                  />
-                </div>
-
                 <div className="flex items-start">
                   <input
                     type="checkbox"
@@ -253,7 +233,7 @@ export default function ContactUs() {
 
                 <button
                   type="submit"
-                  disabled={!captchaVerified || verificationStep !== 'complete' || !formData.consent}
+                  disabled={verificationStep !== 'complete' || !formData.consent}
                   className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10">Send Message</span>

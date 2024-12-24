@@ -11,7 +11,7 @@ export const images = {
       Senior1: 'https://i.imgur.com/ncHvF08.png',
       Senior2: 'https://i.imgur.com/PO6WymE.png',
       Senior3: 'https://i.imgur.com/JxVZaAk.png',
-      VicePresident: 'https://i.imgur.com/G4u7wTu.png',
+      VicePresident: 'https://i.ibb.co/YXk55gF/IMG-20240829-WA0035.jpg',
       Genralsec: 'https://i.ibb.co/4dw5jDY/PXL-20240119-190207229-PORTRAIT-2.jpg',
       MangementHead: 'https://i.imgur.com/p3gGdZI.png',
       MarketingHead: 'https://i.imgur.com/6EJ3PwY.png',
