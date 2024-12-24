@@ -19,12 +19,12 @@ export const images = {
       TechnicalHead1: 'https://i.ibb.co/gykP7NF/IMG-20240910-WA0010.jpg',
       TechnicalHead2: 'https://i.ibb.co/9rYCfLf/IMG-20231231-WA0064.jpg',
       TechnicalHead3: 'https://i.ibb.co/ft1gzdh/Snapchat-1369988283.jpg',
-      TechnicalHead4: 'https://i.imgur.com/s2lcxHv.png',
+      TechnicalHead4: 'https://i.ibb.co/VBnfnxB/Screenshot-2024-09-11-18-53-36-44-99c04817c0de5652397fc8b56c3b3817.jpg',
       TechnicalHead5: 'https://i.imgur.com/s2lcxHv.png',
-      TechnicalHead6: 'https://i.imgur.com/s2lcxHv.png',
+      TechnicalHead6: 'https://i.ibb.co/rx2MM5q/IMG-20231224-132103.jpg',
 
-      DigitalHead1: 'https://i.imgur.com/s2lcxHv.png',
-      DigitalHead2: 'https://i.imgur.com/s2lcxHv.png',
+      DigitalHead1: 'https://i.ibb.co/TTVtFFG/png.png',
+      DigitalHead2: 'https://i.ibb.co/ZcTYKnq/IMG-20240910-224907.jpg',
       male1:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80',
 

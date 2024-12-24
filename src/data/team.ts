@@ -114,16 +114,34 @@ export const teamData = {
           email: 'james.w@mail.jiit.ac.in',
           imageUrl: images.team.placeholders.TechnicalHead3,
         },
+        {
+          name: 'Prateek',
+          role: 'Technical Head',
+          email: 'james.w@mail.jiit.ac.in',
+          imageUrl: images.team.placeholders.TechnicalHead4,
+        },
+        {
+          name: 'Yash Malik',
+          role: 'Technical Head',
+          email: 'james.w@mail.jiit.ac.in',
+          imageUrl: images.team.placeholders.TechnicalHead5,
+        },
+        {
+          name: 'Sambhav Gupta',
+          role: 'Technical Head',
+          email: 'james.w@mail.jiit.ac.in',
+          imageUrl: images.team.placeholders.TechnicalHead6,
+        },
       ],
       digital: [
         {
-          name: 'Rachel Green',
+          name: 'Saadgi Bhatia',
           role: 'Digital Head',
           email: 'rachel.g@mail.jiit.ac.in',
           imageUrl: images.team.placeholders.female2,
         },
         {
-          name: 'Tom Martinez',
+          name: 'Aditya Singh',
           role: 'Digital Head',
           email: 'tom.m@mail.jiit.ac.in',
           imageUrl: images.team.placeholders.male2,
