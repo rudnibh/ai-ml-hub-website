@@ -97,22 +97,22 @@ export const teamData = {
       ],
       technical: [
         {
-          name: 'Chris Anderson',
+          name: 'Manya Gangoli',
           role: 'Technical Head',
-          email: 'chris.a@mail.jiit.ac.in',
-          imageUrl: images.team.placeholders.male3,
+          email: 'manya.gangoli.jiit.ac.in',
+          imageUrl: images.team.placeholders.TechnicalHead1,
         },
         {
-          name: 'Lisa Park',
+          name: 'Rudra',
           role: 'Technical Head',
           email: 'lisa.p@mail.jiit.ac.in',
-          imageUrl: images.team.placeholders.female3,
+          imageUrl: images.team.placeholders.TechnicalHead2,
         },
         {
-          name: 'James Wilson',
+          name: 'Arsh Gupta',
           role: 'Technical Head',
           email: 'james.w@mail.jiit.ac.in',
-          imageUrl: images.team.placeholders.male1,
+          imageUrl: images.team.placeholders.TechnicalHead3,
         },
       ],
       digital: [
