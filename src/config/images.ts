@@ -5,7 +5,7 @@ export const images = {
     aimlPurple: '/aimlLogo_purplish.png',
   },
   team: {
-    facultyAdvisor: 'https://ibb.co/mXTZ0XH',
+    facultyAdvisor: 'https://i.ibb.co/QCQSkC6/png-1.png',
     placeholders: {
       president: 'https://i.ibb.co/YLf3L4S/IMG-20240910-232730.jpg',
       Senior1: 'https://i.ibb.co/RYv4kHV/Whats-App-Image-2024-09-10-at-23-24-21.jpg',
