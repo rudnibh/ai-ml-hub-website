@@ -3,6 +3,7 @@ export interface TeamMember {
   role: string;
   email: string;
   imageUrl: string;
+  description?: string;
 }
 
 export interface TeamHeads {
@@ -21,6 +22,7 @@ export interface CoreTeam {
 
 export interface TeamData {
   facultyAdvisor: TeamMember;
+  founders: TeamMember[];
   seniorAdvisors: TeamMember[];
   coreTeam: CoreTeam;
 }
