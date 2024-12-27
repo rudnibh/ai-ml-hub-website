@@ -8,9 +8,9 @@ export const images = {
     facultyAdvisor: 'https://ibb.co/mXTZ0XH',
     placeholders: {
       president: 'https://i.ibb.co/YLf3L4S/IMG-20240910-232730.jpg',
-      Senior1: 'https://ibb.co/ydfBcsb',
-      Senior2: 'https://ibb.co/LYvwmm7',
-      Senior3: 'https://ibb.co/7JHgBmg',
+      Senior1: 'https://i.ibb.co/RYv4kHV/Whats-App-Image-2024-09-10-at-23-24-21.jpg',
+      Senior2: 'https://i.ibb.co/bQ7hTT9/png-3.png',
+      Senior3: 'https://i.ibb.co/DDNGm2G/png-2.png',
       VicePresident: 'https://i.ibb.co/YXk55gF/IMG-20240829-WA0035.jpg',
       Genralsec: 'https://i.ibb.co/4dw5jDY/PXL-20240119-190207229-PORTRAIT-2.jpg',
       MangementHead: 'https://i.ibb.co/VqVh2M4/IMG-20240227-185149-488.jpg',
@@ -20,7 +20,7 @@ export const images = {
       TechnicalHead2: 'https://i.ibb.co/9rYCfLf/IMG-20231231-WA0064.jpg',
       TechnicalHead3: 'https://i.ibb.co/ft1gzdh/Snapchat-1369988283.jpg',
       TechnicalHead4: 'https://i.ibb.co/VBnfnxB/Screenshot-2024-09-11-18-53-36-44-99c04817c0de5652397fc8b56c3b3817.jpg',
-      TechnicalHead5: 'https://ibb.co/brpW4fJ',
+      TechnicalHead5: 'https://i.ibb.co/30trxJz/Picsart-24-06-24-01-15-06-909.jpg',
       TechnicalHead6: 'https://i.ibb.co/rx2MM5q/IMG-20231224-132103.jpg',
 
       DigitalHead1: 'https://i.ibb.co/TTVtFFG/png.png',
