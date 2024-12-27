@@ -9,6 +9,13 @@ interface TeamSectionProps {
 }
 
 export function TeamSection({ data }: TeamSectionProps) {
+  // Combine all department heads except technical into a single array
+  const departmentHeads = [
+    ...data.coreTeam.heads.management.map(head => ({ ...head, department: 'Management' })),
+    ...data.coreTeam.heads.marketing.map(head => ({ ...head, department: 'Marketing' })),
+    ...data.coreTeam.heads.digital.map(head => ({ ...head, department: 'Digital' }))
+  ];
+
   return (
     <section className="space-y-20">
       {/* Faculty Advisor */}
@@ -31,7 +38,6 @@ export function TeamSection({ data }: TeamSectionProps) {
         </div>
       </div>
 
-      {/* Rest of the existing sections */}
       {/* Senior Advisors */}
       <div className="space-y-8">
         <GradientHeading>Senior Advisors</GradientHeading>
@@ -55,42 +61,28 @@ export function TeamSection({ data }: TeamSectionProps) {
 
         {/* Department Heads */}
         <div className="space-y-12">
-          {/* Management Heads */}
-          <div>
-            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Management Heads</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {data.coreTeam.heads.management.map((head, index) => (
-                <TeamMemberCard key={`management-${index}`} member={head} />
-              ))}
-            </div>
-          </div>
-
-          {/* Marketing Heads */}
-          <div>
-            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Marketing Heads</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {data.coreTeam.heads.marketing.map((head, index) => (
-                <TeamMemberCard key={`marketing-${index}`} member={head} />
-              ))}
-            </div>
+          <GradientHeading>Department Heads</GradientHeading>
+          
+          {/* Management, Marketing, and Digital Heads in one row */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {departmentHeads.map((head, index) => (
+              <div key={`dept-${index}`} className="flex flex-col">
+                <h4 className="text-2xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                  {head.department}
+                </h4>
+                <TeamMemberCard member={head} />
+              </div>
+            ))}
           </div>
 
           {/* Technical Heads */}
           <div>
-            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Technical Heads</h3>
+            <h4 className="text-2xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+              Technical
+            </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {data.coreTeam.heads.technical.map((head, index) => (
                 <TeamMemberCard key={`tech-${index}`} member={head} />
-              ))}
-            </div>
-          </div>
-
-          {/* Digital Heads */}
-          <div>
-            <h3 className="text-2xl font-semibold text-center text-purple-400 mb-8">Digital Heads</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {data.coreTeam.heads.digital.map((head, index) => (
-                <TeamMemberCard key={`digital-${index}`} member={head} />
               ))}
             </div>
           </div>
