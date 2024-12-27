@@ -21,7 +21,6 @@ export interface CoreTeam {
 
 export interface TeamData {
   facultyAdvisor: TeamMember;
-  founders: TeamMember[];
   seniorAdvisors: TeamMember[];
   coreTeam: CoreTeam;
 }
