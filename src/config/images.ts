@@ -5,12 +5,12 @@ export const images = {
     aimlPurple: '/aimlLogo_purplish.png',
   },
   team: {
-    facultyAdvisor: '/ashish-mishra.png',
+    facultyAdvisor: 'https://ibb.co/mXTZ0XH',
     placeholders: {
       president: 'https://i.ibb.co/YLf3L4S/IMG-20240910-232730.jpg',
-      Senior1: 'https://i.imgur.com/ncHvF08.png',
-      Senior2: 'https://i.imgur.com/PO6WymE.png',
-      Senior3: 'https://i.imgur.com/JxVZaAk.png',
+      Senior1: 'https://ibb.co/ydfBcsb',
+      Senior2: 'https://ibb.co/LYvwmm7',
+      Senior3: 'https://ibb.co/7JHgBmg',
       VicePresident: 'https://i.ibb.co/YXk55gF/IMG-20240829-WA0035.jpg',
       Genralsec: 'https://i.ibb.co/4dw5jDY/PXL-20240119-190207229-PORTRAIT-2.jpg',
       MangementHead: 'https://i.ibb.co/VqVh2M4/IMG-20240227-185149-488.jpg',
@@ -20,7 +20,7 @@ export const images = {
       TechnicalHead2: 'https://i.ibb.co/9rYCfLf/IMG-20231231-WA0064.jpg',
       TechnicalHead3: 'https://i.ibb.co/ft1gzdh/Snapchat-1369988283.jpg',
       TechnicalHead4: 'https://i.ibb.co/VBnfnxB/Screenshot-2024-09-11-18-53-36-44-99c04817c0de5652397fc8b56c3b3817.jpg',
-      TechnicalHead5: 'https://i.imgur.com/s2lcxHv.png',
+      TechnicalHead5: 'https://ibb.co/brpW4fJ',
       TechnicalHead6: 'https://i.ibb.co/rx2MM5q/IMG-20231224-132103.jpg',
 
       DigitalHead1: 'https://i.ibb.co/TTVtFFG/png.png',
