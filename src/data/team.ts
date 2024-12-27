@@ -54,7 +54,6 @@ export const teamData = {
           email: 'kushagra.tewari@mail.jiit.ac.in',
           imageUrl: images.team.placeholders.MangementHead,
         },
-      ],
       marketing: [
         {
           name: 'Sanskar Sahu',
