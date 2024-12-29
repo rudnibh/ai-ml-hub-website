@@ -1,0 +1,39 @@
+.phone-input-container {
+    width: 100%;
+  }
+  
+  .phone-input-container .form-control {
+    width: 100% !important;
+    background-color: rgb(31, 41, 55) !important;
+    border-color: rgb(55, 65, 81) !important;
+    color: white !important;
+    height: 48px !important;
+  }
+  
+  .phone-input-button {
+    background-color: rgb(31, 41, 55) !important;
+    border-color: rgb(55, 65, 81) !important;
+  }
+  
+  .phone-input-button:hover {
+    background-color: rgb(55, 65, 81) !important;
+  }
+  
+  .phone-input-dropdown {
+    background-color: rgb(31, 41, 55) !important;
+    color: white !important;
+  }
+  
+  .phone-input-dropdown .country:hover {
+    background-color: rgb(55, 65, 81) !important;
+  }
+  
+  .phone-input-dropdown .selected {
+    background-color: rgb(139, 92, 246) !important;
+  }
+  
+  .phone-input-search {
+    background-color: rgb(31, 41, 55) !important;
+    border-color: rgb(55, 65, 81) !important;
+    color: white !important;
+  }
