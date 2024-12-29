@@ -27,7 +27,13 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
         throw new Error(validationError);
       }
 
-      const confirmation = await signInWithPhoneNumber(auth, phoneNumber);
+      // Create a temporary app verifier object
+      const appVerifier = {
+        type: 'recaptcha',
+        verify: () => Promise.resolve('dummy-token')
+      };
+
+      const confirmation = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
       setConfirmationResult(confirmation);
       return true;
     } catch (err: any) {
