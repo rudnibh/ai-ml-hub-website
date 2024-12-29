@@ -28,6 +28,10 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
       }
   
       // Mock Application Verifier
+      const appVerifier = {
+        type: 'mock',
+        verify: () => Promise.resolve('mock-token'),
+      };
       const confirmation = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
     setConfirmationResult(confirmation);
     return true;
