@@ -21,26 +21,26 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
     try {
       setIsLoading(true);
       setError(null);
-  
+      
       const validationError = validatePhoneNumber(phoneNumber);
       if (validationError) {
         throw new Error(validationError);
       }
-  
-      // Mock Application Verifier
-      const confirmation = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
-    setConfirmationResult(confirmation);
-    return true;
-  } catch (err: any) {
-    const errorMessage = err.code === 'auth/invalid-phone-number' 
-      ? 'Please enter a valid phone number with country code'
-      : err.message || 'Authentication service not available';
-    setError(errorMessage);
-    return false;
-  } finally {
-    setIsLoading(false);
-  }
-};
+
+      const confirmation = await signInWithPhoneNumber(auth, phoneNumber);
+      setConfirmationResult(confirmation);
+      return true;
+    } catch (err: any) {
+      const errorMessage = err.code === 'auth/invalid-phone-number' 
+        ? 'Please enter a valid phone number with country code'
+        : err.message || 'Authentication service not available';
+      setError(errorMessage);
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const verifyOtp = async (otp: string): Promise<boolean> => {
     if (!confirmationResult) {
       setError('Please request OTP first');
