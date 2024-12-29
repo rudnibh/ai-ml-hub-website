@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, AlertCircle, Check } from 'lucide-react';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
 import { Card } from './ui/Card';
 import { useFirebaseOtp } from '../hooks/useFirebaseOtp';
 import { OtpInput } from './ui/OtpInput';
@@ -18,11 +16,10 @@ export default function ContactUs() {
   const [verificationStep, setVerificationStep] = useState<'initial' | 'phone' | 'complete'>('initial');
   const [otp, setOtp] = useState('');
   const [success, setSuccess] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
   const {
     isLoading,
-    error: otpError,
+    error,
     sendOtp,
     verifyOtp,
     resetError
@@ -64,6 +61,7 @@ export default function ContactUs() {
       return;
     }
 
+    // Handle form submission
     setSuccess('Form submitted successfully!');
     console.log('Form submitted:', formData);
   };
@@ -73,13 +71,6 @@ export default function ContactUs() {
     setFormData(prev => ({
       ...prev,
       [name]: value
-    }));
-  };
-
-  const handlePhoneChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      phone: `+${value}`
     }));
   };
 
@@ -121,10 +112,10 @@ export default function ContactUs() {
             <div className="md:w-2/3 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Error/Success Messages */}
-                {(error || otpError) && (
+                {error && (
                   <div className="flex items-center space-x-2 text-red-400 bg-red-400/10 p-3 rounded-lg">
                     <AlertCircle className="h-5 w-5" />
-                    <p>{error || otpError}</p>
+                    <p>{error}</p>
                   </div>
                 )}
                 {success && (
@@ -174,27 +165,23 @@ export default function ContactUs() {
                   </label>
                   <div className="space-y-4">
                     <div className="flex space-x-2">
-                      <div className="flex-1">
-                        <PhoneInput
-                          country={'in'}
-                          value={formData.phone}
-                          onChange={handlePhoneChange}
-                          inputProps={{
-                            required: true,
-                            className: 'w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300'
-                          }}
-                          disabled={verificationStep === 'complete'}
-                          containerClass="phone-input-container"
-                          buttonClass="phone-input-button"
-                          dropdownClass="phone-input-dropdown"
-                        />
-                      </div>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                        placeholder="Your phone number"
+                        disabled={verificationStep === 'complete'}
+                      />
                       {verificationStep === 'initial' && (
                         <button
                           type="button"
                           onClick={handleSendOtp}
                           disabled={isLoading}
-                          className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                          className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           Send OTP
                         </button>
@@ -269,36 +256,6 @@ export default function ContactUs() {
           </div>
         </Card>
       </div>
-
-      <style>{`
-        .phone-input-container {
-          width: 100%;
-        }
-        .phone-input-container .form-control {
-          width: 100% !important;
-          background-color: rgb(31, 41, 55) !important;
-          border-color: rgb(55, 65, 81) !important;
-          color: white !important;
-          height: 48px !important;
-        }
-        .phone-input-button {
-          background-color: rgb(31, 41, 55) !important;
-          border-color: rgb(55, 65, 81) !important;
-        }
-        .phone-input-button:hover {
-          background-color: rgb(55, 65, 81) !important;
-        }
-        .phone-input-dropdown {
-          background-color: rgb(31, 41, 55) !important;
-          color: white !important;
-        }
-        .phone-input-dropdown .country:hover {
-          background-color: rgb(55, 65, 81) !important;
-        }
-        .phone-input-dropdown .selected {
-          background-color: rgb(139, 92, 246) !important;
-        }
-      `}</style>
     </section>
   );
 }

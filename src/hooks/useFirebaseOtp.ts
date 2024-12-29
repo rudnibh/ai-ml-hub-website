@@ -31,25 +31,13 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
       setIsLoading(true);
       setError(null);
       
-      // Ensure phone number is properly formatted with country code
-      if (!phoneNumber.startsWith('+')) {
-        throw new Error('Phone number must include country code');
-      }
-
-      // Basic validation for minimum length (country code + number)
-      if (phoneNumber.length < 10) {
-        throw new Error('Phone number is too short');
-      }
-
-      const confirmation = await setupRecaptcha(phoneNumber);
+      const formattedPhoneNumber = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
+      const confirmation = await setupRecaptcha(formattedPhoneNumber);
       setConfirmationResult(confirmation);
       
       return true;
     } catch (err: any) {
-      const errorMessage = err.code === 'auth/invalid-phone-number' 
-        ? 'Please enter a valid phone number with country code'
-        : err.message || 'Failed to send OTP';
-      setError(errorMessage);
+      setError(err.message || 'Failed to send OTP');
       return false;
     } finally {
       setIsLoading(false);
