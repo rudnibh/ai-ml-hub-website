@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { auth } from '../config/firebase';
 import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import { phoneValidation } from '../utils/phoneValidation';
 
 interface UseFirebaseOtpReturn {
   isLoading: boolean;
@@ -35,12 +36,19 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
       setIsLoading(true);
       setError(null);
 
+      // Validate phone number
+      const validationError = phoneValidation.getError(phoneNumber);
+      if (validationError) {
+        setError(validationError);
+        return false;
+      }
+
       if (!auth) {
         throw new Error('Firebase authentication is not initialized');
       }
       
-      const formattedPhoneNumber = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
-      const confirmation = await setupRecaptcha(formattedPhoneNumber);
+      const formattedNumber = phoneValidation.format(phoneNumber);
+      const confirmation = await setupRecaptcha(formattedNumber);
       setConfirmationResult(confirmation);
       
       return true;
