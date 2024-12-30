@@ -17,6 +17,10 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
   const [confirmationResult, setConfirmationResult] = useState<any>(null);
 
   const setupRecaptcha = (phoneNumber: string) => {
+    if (!auth) {
+      throw new Error('Firebase authentication is not initialized');
+    }
+
     const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
       size: 'invisible',
       callback: () => {
@@ -30,6 +34,10 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
     try {
       setIsLoading(true);
       setError(null);
+
+      if (!auth) {
+        throw new Error('Firebase authentication is not initialized');
+      }
       
       const formattedPhoneNumber = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
       const confirmation = await setupRecaptcha(formattedPhoneNumber);
@@ -37,7 +45,9 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
       
       return true;
     } catch (err: any) {
-      setError(err.message || 'Failed to send OTP');
+      const errorMessage = err.message || 'Failed to send OTP';
+      setError(errorMessage);
+      console.error('Send OTP error:', err);
       return false;
     } finally {
       setIsLoading(false);
@@ -57,7 +67,9 @@ export function useFirebaseOtp(): UseFirebaseOtpReturn {
       await confirmationResult.confirm(otp);
       return true;
     } catch (err: any) {
-      setError(err.message || 'Invalid OTP');
+      const errorMessage = err.message || 'Invalid OTP';
+      setError(errorMessage);
+      console.error('Verify OTP error:', err);
       return false;
     } finally {
       setIsLoading(false);
