@@ -1,86 +1,8 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, AlertCircle, Check } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { Card } from './ui/Card';
-import { useFirebaseOtp } from '../hooks/useFirebaseOtp';
-import { OtpInput } from './ui/OtpInput';
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    consent: false
-  });
-
-  const [verificationStep, setVerificationStep] = useState<'initial' | 'phone' | 'complete'>('initial');
-  const [otp, setOtp] = useState('');
-  const [success, setSuccess] = useState<string | null>(null);
-
-  const {
-    isLoading,
-    error,
-    sendOtp,
-    verifyOtp,
-    resetError
-  } = useFirebaseOtp();
-
-  const handleSendOtp = async () => {
-    if (!formData.phone) {
-      setError('Please enter a valid phone number');
-      return;
-    }
-    
-    const sent = await sendOtp(formData.phone);
-    if (sent) {
-      setVerificationStep('phone');
-      setSuccess('OTP sent successfully!');
-      setTimeout(() => setSuccess(null), 3000);
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    if (!otp) {
-      setError('Please enter the OTP');
-      return;
-    }
-
-    const verified = await verifyOtp(otp);
-    if (verified) {
-      setVerificationStep('complete');
-      setSuccess('Phone number verified successfully!');
-      setTimeout(() => setSuccess(null), 3000);
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (verificationStep !== 'complete') {
-      setError('Please complete phone verification');
-      return;
-    }
-
-    // Handle form submission
-    setSuccess('Form submitted successfully!');
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      consent: e.target.checked
-    }));
-  };
-
   return (
     <section id="contactus" className="relative pt-24 pb-20 z-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -110,22 +32,12 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="md:w-2/3 p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Error/Success Messages */}
-                {error && (
-                  <div className="flex items-center space-x-2 text-red-400 bg-red-400/10 p-3 rounded-lg">
-                    <AlertCircle className="h-5 w-5" />
-                    <p>{error}</p>
-                  </div>
-                )}
-                {success && (
-                  <div className="flex items-center space-x-2 text-green-400 bg-green-400/10 p-3 rounded-lg">
-                    <Check className="h-5 w-5" />
-                    <p>{success}</p>
-                  </div>
-                )}
-
-                {/* Form Fields */}
+              <form 
+                action="https://formsubmit.co/agnibhananda@gmail.com" 
+                method="POST" 
+                className="space-y-6"
+              >
+                {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name <span className="text-purple-400">*</span>
@@ -135,13 +47,12 @@ export default function ContactUs() {
                     id="name"
                     name="name"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="Your name"
                   />
                 </div>
 
+                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email <span className="text-purple-400">*</span>
@@ -151,101 +62,38 @@ export default function ContactUs() {
                     id="email"
                     name="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="your@email.com"
                   />
                 </div>
 
-                {/* Phone Verification Section */}
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                    Phone <span className="text-purple-400">*</span>
-                  </label>
-                  <div className="space-y-4">
-                    <div className="flex space-x-2">
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-                        placeholder="Your phone number"
-                        disabled={verificationStep === 'complete'}
-                      />
-                      {verificationStep === 'initial' && (
-                        <button
-                          type="button"
-                          onClick={handleSendOtp}
-                          disabled={isLoading}
-                          className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          Send OTP
-                        </button>
-                      )}
-                    </div>
-
-                    {verificationStep === 'phone' && (
-                      <div className="space-y-4">
-                        <OtpInput
-                          value={otp}
-                          onChange={setOtp}
-                          length={6}
-                          disabled={isLoading}
-                        />
-                        <button
-                          type="button"
-                          onClick={handleVerifyOtp}
-                          disabled={isLoading}
-                          className="w-full px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                          Verify OTP
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
+                {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Message
+                    Message <span className="text-purple-400">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                     placeholder="Your message..."
                   />
                 </div>
 
-                <div className="flex items-start">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    name="consent"
-                    checked={formData.consent}
-                    onChange={handleCheckboxChange}
-                    className="mt-1 h-4 w-4 rounded border-gray-700 text-purple-500 focus:ring-purple-500"
-                  />
-                  <label htmlFor="consent" className="ml-2 text-sm text-gray-300">
-                    I allow this website to store my submission so they can respond to my inquiry.{' '}
-                    <span className="text-purple-400">*</span>
-                  </label>
-                </div>
+                {/* Hidden Subject Field */}
+                <input type="hidden" name="_subject" value="New Contact Form Submission - AI/ML HUB" />
+                
+                {/* Redirect after submission */}
+                <input type="hidden" name="_next" value="https://aimlhub.netlify.app/thank-you" />
 
-                {/* Hidden reCAPTCHA container */}
-                <div id="recaptcha-container"></div>
+                {/* Disable captcha */}
+                <input type="hidden" name="_captcha" value="false" />
 
                 <button
                   type="submit"
-                  disabled={verificationStep !== 'complete' || !formData.consent || isLoading}
-                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2"
                 >
                   <span className="relative z-10">Send Message</span>
                   <Send className="h-5 w-5" />
