@@ -9,26 +9,14 @@ const events = [
     title: "Orientation",
     date: "September 18, 2024",
     image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
-    description: "Introduction to Machine Learning and Artificial Intelligence."
+    description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence."
   },
   {
-    title: "AI Ethics Symposium",
-    date: "March 10, 2024",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80",
-    description: "Discussion on ethical considerations in AI development."
+    title: "Hands on Machine Learning",
+    date: "September 24, 2024",
+    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    description: "Weekly Hands on Machine Learning Classes"
   },
-  {
-    title: "Neural Networks Deep Dive",
-    date: "March 1, 2024",
-    image: "https://images.unsplash.com/photo-1676277791608-ac54525aa94d?auto=format&fit=crop&q=80",
-    description: "Advanced session on neural network architectures and applications."
-  },
-  {
-    title: "Computer Vision Workshop",
-    date: "February 25, 2024",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80",
-    description: "Hands-on workshop on computer vision and image processing."
-  }
 ];
 
 export default function EventsSection() {
