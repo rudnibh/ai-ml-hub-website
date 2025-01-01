@@ -13,7 +13,7 @@ export const teamData = {
       role: 'Founder',
       email: 'amanjn2003@gmail.com',
       imageUrl: 'https://i.ibb.co/V3ztPct/Whats-App-Image-2024-12-29-at-2-53-08-PM.jpg',
-      description: 'M.S. Computer Science | Santa Clara University, California. Upcoming SWE Intern @Microsoft',
+      description: 'M.S. Computer Science | Santa Clara University Upcoming SWE Intern @Microsoft',
     },
     {
       name: 'Ganesh Setty',
