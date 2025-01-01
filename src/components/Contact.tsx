@@ -24,7 +24,11 @@ export default function Contact() {
                 icon={<Linkedin className="h-6 w-6" />}
                 label="Our LinkedIn"
               />
-              <SocialLink href="#" icon={<Twitter className="h-6 w-6" />} />
+              <SocialLink 
+                href="#" 
+                icon={<FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" /> }
+                label = "Our Twitter"
+              />
               <SocialLink
                 href="https://www.instagram.com/aiml.jiit"
                 icon={<Instagram className="h-6 w-6" />}
