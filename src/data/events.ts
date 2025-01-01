@@ -20,12 +20,12 @@ export const upcomingEvent: Event = {
 
 export const pastEvents: Event[] = [
   {
-    title: "Machine Learning Workshop",
-    date: "March 15, 2024",
-    time: "2:00 PM - 5:00 PM",
-    location: "CS Building",
-    description: "Introduction to machine learning algorithms and practical implementations.",
-    imageUrl: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&q=80"
+    title: "Orientation",
+    date: "Sept 18, 2024",
+    time: "5:00 PM - 6:00 PM",
+    location: "LT 2",
+    description: "Introduction to Machine Learning and Artificial Intelligence.",
+    imageUrl: "https://i.ibb.co/3hqQsfp/orientation.jpg"
   },
   // Add more past events here
 ];
