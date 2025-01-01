@@ -5,21 +5,35 @@ import { Notification } from './ui/Notification';
 
 export default function ContactUs() {
   const [showNotification, setShowNotification] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      const formData = new FormData(e.currentTarget);
-      await fetch('https://formsubmit.co/agnibhananda@gmail.com', {
-        method: 'POST',
-        body: formData
-      });
+      const form = e.currentTarget;
+      const formData = new FormData(form);
       
-      setShowNotification(true);
-      e.currentTarget.reset();
+      // Use FormSubmit's AJAX endpoint
+      const response = await fetch('https://formsubmit.co/ajax/AIMLHUBJIIT@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+
+      if (response.ok) {
+        setShowNotification(true);
+        form.reset();
+        setTimeout(() => setShowNotification(false), 5000); // Hide after 5 seconds
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -40,12 +54,16 @@ export default function ContactUs() {
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/3 bg-gradient-to-br from-purple-600 to-pink-600 p-8 text-white">
               <p className="mb-8 text-purple-100">
-                Have questions? We'd love to hear from you.
+                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Mail className="h-6 w-6 text-purple-200" />
-                  <span>AI/ML Hub</span>
+                  <span>ai/mlhubjiit@gmail.com</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <Phone className="h-6 w-6 text-purple-200" />
+                  <span>+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-6 w-6 text-purple-200" />
@@ -55,7 +73,6 @@ export default function ContactUs() {
             </div>
             <div className="md:w-2/3 p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Name <span className="text-purple-400">*</span>
@@ -70,7 +87,6 @@ export default function ContactUs() {
                   />
                 </div>
 
-                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email <span className="text-purple-400">*</span>
@@ -85,7 +101,6 @@ export default function ContactUs() {
                   />
                 </div>
 
-                {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message <span className="text-purple-400">*</span>
@@ -100,15 +115,17 @@ export default function ContactUs() {
                   />
                 </div>
 
-                {/* Hidden Fields */}
                 <input type="hidden" name="_subject" value="New Contact Form Submission - AI/ML HUB" />
                 <input type="hidden" name="_captcha" value="false" />
 
                 <button
                   type="submit"
-                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2"
+                  disabled={isSubmitting}
+                  className="group relative w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative z-10">Send Message</span>
+                  <span className="relative z-10">
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </span>
                   <Send className="h-5 w-5" />
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
                 </button>
