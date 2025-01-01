@@ -6,10 +6,10 @@ import { Card } from './ui/Card';
 
 const events = [
   {
-    title: "Machine Learning Workshop",
-    date: "March 15, 2024",
-    image: "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&q=80",
-    description: "Introduction to machine learning algorithms and practical implementations."
+    title: "Orientation",
+    date: "September 18, 2024",
+    image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
+    description: "Introduction to Machine Learning and Artificial Intelligence."
   },
   {
     title: "AI Ethics Symposium",
