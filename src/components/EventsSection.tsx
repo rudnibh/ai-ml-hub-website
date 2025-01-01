@@ -6,10 +6,10 @@ import { Card } from './ui/Card';
 
 const events = [
   {
-    title: "Orientation",
-    date: "September 18, 2024",
-    image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
-    description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence."
+    title: "{Prompt Crafting Competetion}",
+    date: "November 18, 2024",
+    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    description: "Competition on Crafting beautiful prompts to leverage the power of Generative AI"
   },
   {
     title: "Hands on Machine Learning",
@@ -17,6 +17,13 @@ const events = [
     image: "https://i.ibb.co/JpM215x/first-class.jpg",
     description: "Weekly Hands on Machine Learning Classes"
   },
+  {
+    title: "Orientation",
+    date: "September 18, 2024",
+    image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
+    description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence."
+  },
+ 
 ];
 
 export default function EventsSection() {
