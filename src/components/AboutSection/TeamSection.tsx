@@ -31,7 +31,7 @@ export function TeamSection({ data }: TeamSectionProps) {
       {/* Founders */}
       <div className="space-y-8">
         <GradientHeading>Founders</GradientHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.founders.map((founder, index) => (
             <TeamMemberCard key={index} member={founder} isHighlighted showDescription />
           ))}
