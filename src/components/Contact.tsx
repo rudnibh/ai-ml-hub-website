@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faDiscord } from '@fortawesome/free-brands-svg-icons';
+import { faWhatsapp, faDiscord, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
   return (
