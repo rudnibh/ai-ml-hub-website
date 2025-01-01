@@ -20,20 +20,20 @@ export default function Contact() {
             </div>
             <div className="flex justify-center space-x-6">
               <SocialLink
-                href="#https://www.linkedin.com/company/ai-ml-hub-of-jiit/"
+                href="https://www.linkedin.com/company/ai-ml-hub-of-jiit"
                 icon={<Linkedin className="h-6 w-6" />}
                 label="Our LinkedIn"
               />
               <SocialLink href="#" icon={<Twitter className="h-6 w-6" />} />
               <SocialLink
-                href="https://www.instagram.com/aiml.jiit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/aiml.jiit"
                 icon={<Instagram className="h-6 w-6" />}
                 label="Our Instagram"
               />
               <SocialLink
                 href="https://chat.whatsapp.com/B6LyQMpACJB7n8bOqBG9OR"
                 icon={<FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />}
-                label="Join our WhatsApp group"
+                label="Our WhatsApp group"
               />
               <SocialLink
                 href="#"
