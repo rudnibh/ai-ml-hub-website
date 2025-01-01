@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  Mail,
-  Github,
-  Linkedin,
-  Twitter,
-  Instagram,
-  MessageSquare,
-  Phone,
-} from 'lucide-react';
+import { Mail, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp, faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 export default function Contact() {
   return (
@@ -25,11 +19,10 @@ export default function Contact() {
               </a>
             </div>
             <div className="flex justify-center space-x-6">
-              <SocialLink href="#" icon={<Github className="h-6 w-6" />} />
               <SocialLink
                 href="#https://www.linkedin.com/company/ai-ml-hub-of-jiit/"
                 icon={<Linkedin className="h-6 w-6" />}
-                label="Our Linkdin"
+                label="Our LinkedIn"
               />
               <SocialLink href="#" icon={<Twitter className="h-6 w-6" />} />
               <SocialLink
@@ -39,8 +32,13 @@ export default function Contact() {
               />
               <SocialLink
                 href="https://chat.whatsapp.com/B6LyQMpACJB7n8bOqBG9OR"
-                icon={<Phone className="h-6 w-6" />}
+                icon={<FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6" />}
                 label="Join our WhatsApp group"
+              />
+              <SocialLink
+                href="#"
+                icon={<FontAwesomeIcon icon={faDiscord} className="h-6 w-6" />}
+                label="Join our Discord"
               />
             </div>
           </div>
