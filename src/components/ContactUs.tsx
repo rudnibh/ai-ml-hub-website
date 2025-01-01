@@ -86,7 +86,7 @@ export default function ContactUs() {
                 <input type="hidden" name="_subject" value="New Contact Form Submission - AI/ML HUB" />
                 
                 {/* Redirect after submission */}
-                <input type="hidden" name="_next" value="https://aimlhub.netlify.app/thank-you" />
+                <input type="hidden" name="_next" value="https://ai-ml-hub.vercel.app/" />
 
                 {/* Disable captcha */}
                 <input type="hidden" name="_captcha" value="false" />
