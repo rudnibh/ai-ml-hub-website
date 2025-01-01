@@ -6,7 +6,7 @@ import { Card } from './ui/Card';
 
 const events = [
   {
-    title: "{Prompt Crafting Competetion}",
+    title: "Prompt Crafting Competetion",
     date: "November 18, 2024",
     image: "https://i.ibb.co/JpM215x/first-class.jpg",
     description: "Competition on Crafting beautiful prompts to leverage the power of Generative AI"

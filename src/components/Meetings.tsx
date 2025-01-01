@@ -6,14 +6,14 @@ export default function Meetings() {
     <section id="meetings" className="relative py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-white mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-          Meeting Information
+          Weekly Classes
         </h2>
         <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg border border-purple-900/20 p-8 max-w-3xl mx-auto shadow-lg shadow-purple-500/10 hover:shadow-purple-500/50">
           <div className="space-y-6">
             <div className="flex items-center">
               <Calendar className="h-6 w-6 text-purple-400 mr-4" />
               <div>
-                <h3 className="font-semibold text-white">Weekly Meetings</h3>
+                <h3 className="font-semibold text-white">Weekly Classes</h3>
                 <p className="text-gray-400">Every Wednesday</p>
               </div>
             </div>

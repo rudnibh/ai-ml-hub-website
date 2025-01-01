@@ -13,13 +13,13 @@ const activities = [
   },
   {
     icon: <Users className="h-8 w-8 text-purple-400" />,
-    title: 'Networking Events',
+    title: 'Weekly Classes',
     description:
-      'Connect with industry professionals and fellow tech enthusiasts.',
+      'Weekly Hands on Classes on Machine Learning.',
   },
   {
     icon: <Trophy className="h-8 w-8 text-purple-400" />,
-    title: 'Hackathons',
+    title: 'Competetions',
     description:
       'Participate in exciting coding competitions and build amazing projects.',
   },
