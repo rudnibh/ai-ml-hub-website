@@ -20,7 +20,7 @@ export const teamData = {
       role: 'Founder',
       email: 'ganeshsetty.04@gmail.com',
       imageUrl: 'https://i.ibb.co/jJrFL9Q/Whats-App-Image-2024-12-29-at-2-53-09-PM.jpg',
-      description: 'Software Developer | Kickdrum',
+      description: 'SDE | Kickdrum',
     },
     {
       name: 'Shabdansh Gupta',

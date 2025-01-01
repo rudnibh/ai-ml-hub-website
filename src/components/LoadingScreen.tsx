@@ -6,7 +6,6 @@ export default function LoadingScreen() {
   const [isZooming, setIsZooming] = useState(false);
 
   useEffect(() => {
-    // Start zoom effect after 2.5 seconds
     const timer = setTimeout(() => {
       setIsZooming(true);
     }, 2500);
@@ -40,7 +39,6 @@ export default function LoadingScreen() {
           </motion.div>
         </div>
 
-        {/* Central Sphere */}
         <motion.div
           className="relative"
           animate={isZooming ? {
