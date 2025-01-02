@@ -75,7 +75,7 @@ export function SocialLinksPopup({ isOpen, onClose }: SocialLinksPopupProps) {
 
               <div className="p-8">
                 <h2 className="text-2xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                  Connect With Us
+                  Join Us
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
