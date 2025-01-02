@@ -4,7 +4,6 @@ import UpcomingEvent from './UpcomingEvent';
 import Activities from './Activities';
 import EventsSection from './EventsSection';
 import Meetings from './Meetings';
-import Contact from './Contact';
 import ContactUs from './ContactUs';
 
 export default function MainContent() {
@@ -16,7 +15,6 @@ export default function MainContent() {
       <EventsSection />
       <Meetings />
       <ContactUs />
-      <Contact />
     </main>
   );
 }
