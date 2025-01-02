@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import { AimlLogo } from './ui/AimlLogo';
+import { SocialLinksPopup } from './ui/SocialLinksPopup';
 
 export default function Hero() {
+  const [isSocialOpen, setIsSocialOpen] = useState(false);
+  
   const scrollToContact = () => {
     const contactSection = document.getElementById('contactus');
     if (contactSection) {
@@ -36,21 +39,34 @@ export default function Hero() {
           collaboration in Artificial Intelligence and Machine Learning. Join us
           to explore cutting-edge tech and shape the future together!
         </p>
-        <div className="relative inline-block group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="relative inline-block group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+            <button 
+              onClick={scrollToContact}
+              className="relative px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
+              <span className="flex items-center">
+                Join Us Today
+                <Sparkles className="ml-2 h-5 w-5 animate-pulse" />
+              </span>
+            </button>
+          </div>
           <button 
-          onClick={scrollToContact}
-          className="relative px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
-            <span className="flex items-center">
-              Join Us Today
-              <Sparkles className="ml-2 h-5 w-5 animate-pulse" />
-            </span>
+            onClick={() => setIsSocialOpen(true)}
+            className="px-8 py-3 bg-gray-800/50 border border-purple-500/20 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-gray-800/80"
+          >
+            Connect With Us
           </button>
         </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent animate-pulse-slow"></div>
       </div>
+
+      <SocialLinksPopup 
+        isOpen={isSocialOpen}
+        onClose={() => setIsSocialOpen(false)}
+      />
     </div>
   );
 }
