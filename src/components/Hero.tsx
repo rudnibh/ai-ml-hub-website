@@ -43,21 +43,13 @@ export default function Hero() {
           <div className="relative inline-block group">
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
             <button 
-              onClick={scrollToContact}
+               onClick={() => setIsSocialOpen(true)}
               className="relative px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
               <span className="flex items-center">
                 Join Us Today
                 <Sparkles className="ml-2 h-5 w-5 animate-pulse" />
               </span>
             </button>
-          </div>
-          <button 
-            onClick={() => setIsSocialOpen(true)}
-            className="px-8 py-3 bg-gray-800/50 border border-purple-500/20 text-white rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:bg-gray-800/80"
-          >
-            Connect With Us
-          </button>
-        </div>
       </div>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent animate-pulse-slow"></div>
