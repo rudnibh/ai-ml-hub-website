@@ -17,7 +17,7 @@ export function Notification({ show, onClose, title = 'Success!', message }: Not
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
-          className="fixed top-4 right-4 z-[100]" // Updated z-index to be higher than navbar
+          className="fixed top-24 right-4 z-50"
         >
           <div className="bg-gray-800 border border-purple-500/20 rounded-lg shadow-lg shadow-purple-500/10 p-4 max-w-md">
             <div className="flex items-start space-x-4">
