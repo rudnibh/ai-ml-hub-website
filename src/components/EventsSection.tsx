@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Container } from './ui/Container';
 import { GradientHeading } from './ui/GradientHeading';
@@ -23,42 +23,82 @@ const events = [
     image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
     description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence."
   },
- 
 ];
 
 export default function EventsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
+    let animationId: number;
     const container = scrollContainerRef.current;
-    if (!container) return;
 
-    const scroll = () => {
-      if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+    const autoScroll = () => {
+      if (!container || !isAutoScrolling) return;
+
+      const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth;
+      
+      if (isAtEnd) {
         container.scrollLeft = 0;
       } else {
         container.scrollLeft += 1;
       }
-      animationRef.current = requestAnimationFrame(scroll);
+      
+      animationId = requestAnimationFrame(autoScroll);
     };
 
-    animationRef.current = requestAnimationFrame(scroll);
+    if (isAutoScrolling) {
+      animationId = requestAnimationFrame(autoScroll);
+    }
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      if (animationId) {
+        cancelAnimationFrame(animationId);
       }
     };
-  }, []);
+  }, [isAutoScrolling]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
+      setIsAutoScrolling(false);
       const scrollAmount = 400;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
+      const container = scrollContainerRef.current;
+      const newScrollLeft = direction === 'left' 
+        ? container.scrollLeft - scrollAmount 
+        : container.scrollLeft + scrollAmount;
+      
+      container.scrollTo({
+        left: newScrollLeft,
         behavior: 'smooth'
       });
+    }
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setIsAutoScrolling(false);
+    setStartX(e.pageX - scrollContainerRef.current!.offsetLeft);
+    setScrollLeft(scrollContainerRef.current!.scrollLeft);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current!.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollContainerRef.current!.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
     }
   };
 
@@ -81,25 +121,17 @@ export default function EventsSection() {
           </button>
           <div
             ref={scrollContainerRef}
-            className="flex overflow-x-auto hide-scrollbar gap-6 pb-4 px-4 -mx-4 snap-x snap-mandatory"
-            onMouseEnter={() => {
-              if (animationRef.current) {
-                cancelAnimationFrame(animationRef.current);
-              }
-            }}
+            className={`flex overflow-x-auto hide-scrollbar gap-6 pb-4 px-4 -mx-4 snap-x snap-mandatory ${
+              isDragging ? 'cursor-grabbing' : 'cursor-grab'
+            }`}
+            onMouseEnter={() => setIsAutoScrolling(false)}
             onMouseLeave={() => {
-              const scroll = () => {
-                if (scrollContainerRef.current) {
-                  if (scrollContainerRef.current.scrollLeft >= scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth) {
-                    scrollContainerRef.current.scrollLeft = 0;
-                  } else {
-                    scrollContainerRef.current.scrollLeft += 1;
-                  }
-                }
-                animationRef.current = requestAnimationFrame(scroll);
-              };
-              animationRef.current = requestAnimationFrame(scroll);
+              handleMouseLeave();
+              setIsAutoScrolling(true);
             }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
           >
             {events.map((event, index) => (
               <Card
@@ -119,7 +151,9 @@ export default function EventsSection() {
                     <Calendar className="h-4 w-4 text-purple-400" />
                     <span className="text-sm text-gray-400">{event.date}</span>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-white group-hover/card:text-purple-400 transition-colors">{event.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-white group-hover/card:text-purple-400 transition-colors">
+                    {event.title}
+                  </h3>
                   <p className="text-gray-400">{event.description}</p>
                 </div>
               </Card>
