@@ -9,16 +9,14 @@ import Contact from './Contact';
 
 export default function MainContent() {
   return (
-    <main className="relative">
+    <main className="relative pt-16">
       <Hero />
-      <div className="relative z-10 bg-gray-900">
-        <UpcomingEvent />
-        <Activities />
-        <EventsSection />
-        <Meetings />
-        <ContactUs />
-        <Contact />
-      </div>
+      <UpcomingEvent />
+      <Activities />
+      <EventsSection />
+      <Meetings />
+      <ContactUs />
+      <Contact />
     </main>
   );
 }
