@@ -18,7 +18,7 @@ export default function Hero() {
 
   return (
     <div 
-      className="relative hero-grid min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden -mt-[72px]"
       onMouseMove={handleMouseMove}
     >
       <ParallaxBackground xy={xy} />
@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-[72px]">
         <AnimatedLogo xy={xy} />
 
         {/* Animated Title */}
@@ -42,7 +42,7 @@ export default function Hero() {
           AI/ML HUB
         </motion.h1>
 
-        <AnimatedDescription text="Welcome to the AIML Hub at JIIT!" />
+        <AnimatedDescription text="Welcome to the AIML Hub at JIIT! A space for innovation, learning, and collaboration in Artificial Intelligence and Machine Learning. Join us to explore cutting-edge tech and shape the future together!" />
         <CTAButton />
       </div>
 
