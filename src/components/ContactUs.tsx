@@ -16,7 +16,7 @@ export default function ContactUs() {
       const formData = new FormData(form);
       
       // Use FormSubmit's AJAX endpoint
-      const response = await fetch('https://formsubmit.co/ajax/AIMLHUBJIIT@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/agnibhananda@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
