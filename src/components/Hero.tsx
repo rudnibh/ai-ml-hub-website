@@ -7,7 +7,7 @@ export default function Hero() {
   const [isSocialOpen, setIsSocialOpen] = useState(false);
   
   return (
-    <div className="relative -mt-20 min-h-[600px] flex items-center overflow-hidden">
+    <div className="relative hero-grid min-h-[600px] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/90 to-gray-900"></div>
         <img
