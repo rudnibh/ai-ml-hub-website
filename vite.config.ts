@@ -5,7 +5,17 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: ['react', 'react-dom'],
+    exclude: [
+      'react-router-dom',
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/free-brands-svg-icons'
+    ],
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
   build: {
     assetsDir: 'assets',

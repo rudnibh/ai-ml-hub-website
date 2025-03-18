@@ -6,6 +6,18 @@ import { Card } from './ui/Card';
 
 const events = [
   {
+    title: "Mindescape",
+    date: "March 01, 2024",
+    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    description: "AI Powered Minigames"
+  },
+  {
+    title: "Capturing Pics",
+    date: "March 01, 2024",
+    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    description: "AI Powered Photobooth"
+  },
+  {
     title: "Prompt Crafting Competetion",
     date: "November 18, 2024",
     image: "https://i.ibb.co/JpM215x/first-class.jpg",
@@ -61,6 +73,41 @@ export default function EventsSection() {
     };
   }, [isAutoScrolling]);
 
+  // Handle wheel events for horizontal scrolling
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (!container) return;
+      
+      // If shift key is pressed, let the browser handle the horizontal scroll
+      if (e.shiftKey) return;
+      
+      // Otherwise, convert vertical wheel movement to horizontal
+      e.preventDefault();
+      container.scrollLeft += e.deltaY;
+      
+      // Temporarily disable auto-scrolling while user is scrolling
+      setIsAutoScrolling(false);
+      clearTimeout(container.dataset.scrollTimeout as unknown as number);
+      
+      // Resume auto-scrolling after user stops scrolling
+      const timeout = window.setTimeout(() => {
+        setIsAutoScrolling(true);
+      }, 2000);
+      
+      container.dataset.scrollTimeout = timeout.toString();
+    };
+
+    container.addEventListener('wheel', handleWheel, { passive: false });
+    
+    return () => {
+      container.removeEventListener('wheel', handleWheel);
+      clearTimeout(container.dataset.scrollTimeout as unknown as number);
+    };
+  }, []);
+
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       setIsAutoScrolling(false);
@@ -74,56 +121,77 @@ export default function EventsSection() {
         left: newScrollLeft,
         behavior: 'smooth'
       });
+      
+      // Resume auto-scrolling after a delay
+      clearTimeout(container.dataset.scrollTimeout as unknown as number);
+      const timeout = window.setTimeout(() => {
+        setIsAutoScrolling(true);
+      }, 2000);
+      container.dataset.scrollTimeout = timeout.toString();
     }
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    
     setIsDragging(true);
     setIsAutoScrolling(false);
-    setStartX(e.pageX - scrollContainerRef.current!.offsetLeft);
-    setScrollLeft(scrollContainerRef.current!.scrollLeft);
+    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    setScrollLeft(scrollContainerRef.current.scrollLeft);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
+    if (!isDragging || !scrollContainerRef.current) return;
+    
     e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current!.offsetLeft;
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
     const walk = (x - startX) * 2;
-    scrollContainerRef.current!.scrollLeft = scrollLeft - walk;
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
 
   const handleMouseUp = () => {
     setIsDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
+    
+    // Resume auto-scrolling after a delay
+    if (scrollContainerRef.current) {
+      clearTimeout(scrollContainerRef.current.dataset.scrollTimeout as unknown as number);
+      const timeout = window.setTimeout(() => {
+        setIsAutoScrolling(true);
+      }, 2000);
+      scrollContainerRef.current.dataset.scrollTimeout = timeout.toString();
     }
   };
 
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <section id="events" className="relative py-20">
+    <section id="events" className="relative py-20 overflow-hidden">
       <Container>
         <GradientHeading>Past Events</GradientHeading>
         <div className="relative group">
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
           <div
             ref={scrollContainerRef}
-            className={`flex overflow-x-auto hide-scrollbar gap-6 pb-4 px-4 -mx-4 snap-x snap-mandatory ${
+            className={`flex overflow-x-auto hide-scrollbar gap-6 pb-4 snap-x no-scrollbar ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}
             onMouseEnter={() => setIsAutoScrolling(false)}
             onMouseLeave={() => {
               handleMouseLeave();
