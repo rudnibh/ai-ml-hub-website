@@ -131,28 +131,30 @@ export default function EventsSection() {
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
     if (!scrollContainerRef.current) return;
     
     setIsDragging(true);
     setIsAutoScrolling(false);
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+    
+    const pageX = 'touches' in e ? e.touches[0].pageX : e.pageX;
+    setStartX(pageX - scrollContainerRef.current.offsetLeft);
     setScrollLeft(scrollContainerRef.current.scrollLeft);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!isDragging || !scrollContainerRef.current) return;
     
     e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const pageX = 'touches' in e ? e.touches[0].pageX : e.pageX;
+    const x = pageX - scrollContainerRef.current.offsetLeft;
     const walk = (x - startX) * 2;
     scrollContainerRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const handleMouseUp = () => {
+  const handleDragEnd = () => {
     setIsDragging(false);
     
-    // Resume auto-scrolling after a delay
     if (scrollContainerRef.current) {
       clearTimeout(scrollContainerRef.current.dataset.scrollTimeout as unknown as number);
       const timeout = window.setTimeout(() => {
@@ -162,10 +164,6 @@ export default function EventsSection() {
     }
   };
 
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-  };
-
   return (
     <section id="events" className="relative py-20 overflow-hidden">
       <Container>
@@ -173,33 +171,33 @@ export default function EventsSection() {
         <div className="relative group">
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100 md:opacity-100"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/80 p-2 rounded-full border border-purple-900/20 text-purple-400 hover:text-purple-300 transition-colors opacity-0 group-hover:opacity-100 md:opacity-100"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
           <div
             ref={scrollContainerRef}
-            className={`flex overflow-x-auto hide-scrollbar gap-6 pb-4 snap-x no-scrollbar ${
+            className={`flex overflow-x-auto gap-6 pb-4 snap-x no-scrollbar touch-pan-x ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
-            style={{
-              scrollbarWidth: 'none',
-              msOverflowStyle: 'none'
-            }}
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragEnd}
             onMouseEnter={() => setIsAutoScrolling(false)}
             onMouseLeave={() => {
-              handleMouseLeave();
+              handleDragEnd();
               setIsAutoScrolling(true);
             }}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
           >
             {events.map((event, index) => (
               <Card
@@ -212,6 +210,7 @@ export default function EventsSection() {
                     src={event.image}
                     alt={event.title}
                     className="w-full h-full object-cover transform group-hover/card:scale-110 transition-transform duration-700"
+                    draggable="false"
                   />
                 </div>
                 <div className="p-6">
