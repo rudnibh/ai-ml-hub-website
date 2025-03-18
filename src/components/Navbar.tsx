@@ -13,7 +13,6 @@ export default function Navbar() {
     { href: '/#activities', label: 'Activities' },
     { href: '/projects', label: 'Projects' },
     { href: '/achievements', label: 'Achievements' },
-    { href: '/#meetings', label: 'Meetings' },
     { href: '/#contactus', label: 'Contact' },
   ];
 

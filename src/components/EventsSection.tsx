@@ -73,7 +73,6 @@ export default function EventsSection() {
     };
   }, [isAutoScrolling]);
 
-  // Handle wheel events for horizontal scrolling
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
@@ -81,18 +80,14 @@ export default function EventsSection() {
     const handleWheel = (e: WheelEvent) => {
       if (!container) return;
       
-      // If shift key is pressed, let the browser handle the horizontal scroll
       if (e.shiftKey) return;
       
-      // Otherwise, convert vertical wheel movement to horizontal
       e.preventDefault();
       container.scrollLeft += e.deltaY;
       
-      // Temporarily disable auto-scrolling while user is scrolling
       setIsAutoScrolling(false);
       clearTimeout(container.dataset.scrollTimeout as unknown as number);
       
-      // Resume auto-scrolling after user stops scrolling
       const timeout = window.setTimeout(() => {
         setIsAutoScrolling(true);
       }, 2000);
@@ -122,7 +117,6 @@ export default function EventsSection() {
         behavior: 'smooth'
       });
       
-      // Resume auto-scrolling after a delay
       clearTimeout(container.dataset.scrollTimeout as unknown as number);
       const timeout = window.setTimeout(() => {
         setIsAutoScrolling(true);
