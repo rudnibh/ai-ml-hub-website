@@ -25,10 +25,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">
             {project.title}
           </h3>
-          <div className="flex items-center space-x-2 text-gray-400">
-            <ThumbsUp className="h-4 w-4" />
-            <span>{project.likes}</span>
-          </div>
         </div>
 
         <div className="flex items-center space-x-2 text-sm text-gray-400">

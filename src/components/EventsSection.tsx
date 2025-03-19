@@ -8,13 +8,13 @@ const events = [
   {
     title: "Mindescape",
     date: "March 01, 2024",
-    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    image: "mindescape.JPG",
     description: "AI Powered Minigames"
   },
   {
     title: "Capturing Pics",
     date: "March 01, 2024",
-    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    image: "capturingpics.JPG",
     description: "AI Powered Photobooth"
   },
   {

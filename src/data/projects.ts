@@ -3,28 +3,26 @@ import type { Project } from '../types/project';
 export const projects: Project[] = [
   {
     id: '1',
-    title: 'AI-Powered Image Recognition System',
-    description: 'A deep learning-based image recognition system that can identify and classify objects in real-time using computer vision techniques.',
-    students: ['Rahul Kumar', 'Priya Sharma'],
-    technologies: ['Python', 'TensorFlow', 'Computer Vision', 'Deep Learning'],
-    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80',
-    date: '2024-03-15',
-    year: '2024',
-    likes: 45,
-    liveUrl: 'https://demo.example.com/image-recognition',
-    sourceUrl: 'https://github.com/example/image-recognition'
+    title: 'AI Jailbreak',
+    description: 'A game where you try to convince an AI prison warden to let you out of your cell by telling you the secret phrase.',
+    students: ['Agnibha Nanda', 'Harsimran Singh'],
+    technologies: ['React', 'Typescript', 'Tailwind', 'Gemini API'],
+    image: 'ai-jailbreak.png',
+    date: '2025',
+    year: '2025',
+    liveUrl: 'https://ai-jailbreak.vercel.app/',
+    sourceUrl: 'https://github.com/agnibhananda/AI-jailbreak'
   },
   {
     id: '2',
-    title: 'Natural Language Processing Chatbot',
-    description: 'An intelligent chatbot that uses NLP to understand and respond to user queries with context-aware responses.',
-    students: ['Amit Singh', 'Neha Patel'],
-    technologies: ['Python', 'NLP', 'Machine Learning'],
-    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80',
-    date: '2024-02-20',
-    year: '2024',
-    likes: 38,
-    sourceUrl: 'https://github.com/example/nlp-chatbot'
+    title: 'Photobooth',
+    description: 'Transform photos into artistic portraits using Stable Diffusion.',
+    students: ['Agnibha Nanda'],
+    technologies: ['Stable Diffusion', 'Typescript',],
+    image: 'photobooth.jpg',
+    date: '2025',
+    year: '2025',
+    sourceUrl: 'https://github.com/agnibhananda/AI-ML-Hub-Photobooth'
   },
   {
     id: '3',
