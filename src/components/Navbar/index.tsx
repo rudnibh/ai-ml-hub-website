@@ -21,9 +21,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full z-10 px-4 py-3">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 px-4 py-3">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-gray-900/80 backdrop-blur-lg border border-purple-900/20 rounded-2xl shadow-lg shadow-purple-500/10">
+        <div className="bg-purple-900/95 backdrop-blur-md border border-purple-500/30 rounded-2xl shadow-xl shadow-purple-900/30">
           <div className="flex justify-between h-14 px-4">
             <Link to="/" className="flex items-center">
               <AimlLogo className="h-12 w-13 text-purple-200" />
@@ -41,7 +41,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-300 hover:text-purple-400 focus:outline-none"
+                className="text-white hover:text-purple-300 focus:outline-none"
               >
                 {isOpen ? (
                   <X className="h-6 w-6" />

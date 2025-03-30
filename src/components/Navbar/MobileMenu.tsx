@@ -12,7 +12,7 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden border-t border-purple-900/20">
+    <div className="md:hidden border-t border-purple-500/30 relative z-50 bg-purple-900/95 backdrop-blur-md rounded-b-2xl shadow-lg shadow-purple-900/20">
       <div className="px-2 pt-2 pb-3 space-y-1">
         {menuItems.map((item) => (
           item.href.startsWith('/#') ? (
@@ -20,7 +20,7 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
               key={item.label}
               href={item.href}
               onClick={(e) => onNavClick(e, item.href)}
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
+              className="block px-3 py-2 rounded-lg text-white hover:bg-purple-800/50 hover:text-purple-300 transition-colors"
             >
               {item.label}
             </a>
@@ -28,7 +28,7 @@ export function MobileMenu({ isOpen, onNavClick, onClose }: MobileMenuProps) {
             <Link
               key={item.label}
               to={item.href}
-              className="block px-3 py-2 text-gray-300 hover:text-purple-400 transition-colors"
+              className="block px-3 py-2 rounded-lg text-white hover:bg-purple-800/50 hover:text-purple-300 transition-colors"
               onClick={onClose}
             >
               {item.label}

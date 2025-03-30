@@ -7,10 +7,21 @@ import { teamData } from '../data/team';
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white pt-20">
-      <Container>
+    <div className="min-h-screen pt-28 z-0">
+      <Container withFade>
         <section id="about" className="relative py-20">
-          <GradientHeading>About AI/ML HUB</GradientHeading>
+          <div className="flex flex-col items-center">
+            <motion.p 
+              className="text-[var(--primary)] font-medium mb-2 tracking-wide uppercase"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Who We Are
+            </motion.p>
+            <GradientHeading align="center">About AI/ML HUB</GradientHeading>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -19,7 +30,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center mb-20"
           >
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-[var(--text-dim)]">
               AI/ML HUB is a dynamic student-led organization at JIIT dedicated to
               fostering innovation and learning in Artificial Intelligence and
               Machine Learning. We bring together passionate students to explore

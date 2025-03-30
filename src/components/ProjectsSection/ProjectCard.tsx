@@ -1,7 +1,8 @@
 import React from 'react';
-import { ExternalLink, Github, ThumbsUp, Calendar } from 'lucide-react';
+import { ExternalLink, Github, ThumbsUp, Calendar, Tag } from 'lucide-react';
 import { Card } from '../ui/Card';
 import type { Project } from '../../types/project';
+import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
   project: Project;
@@ -9,70 +10,78 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="group overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
-      <div className="relative aspect-video overflow-hidden">
-        <img
+    <Card variant="glass" className="group overflow-hidden h-full">
+      <div className="relative aspect-video overflow-hidden rounded-t-xl">
+        <motion.img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover"
           loading="lazy"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.6 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-80" />
+        
+        <div className="absolute top-4 right-4 flex gap-2">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-[var(--primary)]/80 backdrop-blur-md p-2 rounded-full text-white transition-colors duration-300"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          )}
+          {project.sourceUrl && (
+            <a
+              href={project.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/10 hover:bg-[var(--primary)]/80 backdrop-blur-md p-2 rounded-full text-white transition-colors duration-300"
+            >
+              <Github className="h-4 w-4" />
+            </a>
+          )}
+        </div>
+        
+        <div className="absolute bottom-4 left-4 flex gap-2">
+          <div className="bg-[var(--primary)]/20 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-3 py-1 flex items-center">
+            <Calendar className="h-3 w-3 text-[var(--primary)] mr-1" />
+            <span className="text-xs font-medium text-white">{project.date}</span>
+          </div>
+          {project.likes && (
+            <div className="bg-[var(--secondary)]/20 backdrop-blur-md border border-[var(--secondary)]/20 rounded-full px-3 py-1 flex items-center">
+              <ThumbsUp className="h-3 w-3 text-[var(--secondary)] mr-1" />
+              <span className="text-xs font-medium text-white">{project.likes}</span>
+            </div>
+          )}
+        </div>
       </div>
       
       <div className="p-6 space-y-4">
-        <div className="flex items-start justify-between">
-          <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">
-            {project.title}
-          </h3>
-        </div>
+        <h3 className="text-xl font-semibold text-white group-hover:text-[var(--primary)] transition-colors">
+          {project.title}
+        </h3>
 
-        <div className="flex items-center space-x-2 text-sm text-gray-400">
-          <Calendar className="h-4 w-4" />
-          <span>{project.date}</span>
-        </div>
-
-        <p className="text-gray-300 line-clamp-3">{project.description}</p>
+        <p className="text-[var(--text-dim)] line-clamp-3">{project.description}</p>
 
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <span
+            <div
               key={tech}
-              className="px-2 py-1 text-xs rounded-full bg-purple-500/20 text-purple-400"
+              className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-[var(--text-light)] flex items-center"
             >
+              <Tag className="h-3 w-3 mr-1 text-[var(--primary)]" />
               {tech}
-            </span>
+            </div>
           ))}
         </div>
 
-        <div className="pt-4 border-t border-purple-900/20">
-          <p className="text-sm text-gray-400 mb-4">
+        <div className="pt-4 border-t border-white/5">
+          <p className="text-sm text-[var(--text-dim)] mb-4 italic">
             By: {project.students.join(', ')}
           </p>
-          <div className="flex items-center space-x-4">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
-              >
-                <ExternalLink className="h-4 w-4" />
-                <span>Live Demo</span>
-              </a>
-            )}
-            {project.sourceUrl && (
-              <a
-                href={project.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
-              >
-                <Github className="h-4 w-4" />
-                <span>Source</span>
-              </a>
-            )}
-          </div>
         </div>
       </div>
     </Card>

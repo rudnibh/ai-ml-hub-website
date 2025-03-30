@@ -13,9 +13,9 @@ export function TeamMemberCard({ member, isHighlighted = false, showDescription 
   return (
     <motion.div
       whileHover={{ 
-        scale: 1.05,
-        rotateY: 10,
-        z: 50
+        scale: 1.02,
+        y: -8,
+        z: 30
       }}
       transition={{
         type: "spring",
@@ -23,35 +23,53 @@ export function TeamMemberCard({ member, isHighlighted = false, showDescription 
         damping: 20
       }}
       className={`
-        perspective-1000 transform-gpu transition-all duration-300
+        perspective-1000 transform-gpu
         ${isHighlighted ? 'col-span-1' : ''}
       `}
     >
-      <Card className={`
-        p-6 h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50
-        hover:shadow-xl hover:shadow-purple-500/20
-        transform transition-all duration-500
-        hover:translate-z-10
-        ${isHighlighted ? 'border-purple-500/30' : 'border-purple-900/20'}
-      `}>
-        <div className="relative group overflow-hidden rounded-lg mb-4 aspect-square">
+      <Card 
+        variant={isHighlighted ? "bordered" : "glass"}
+        className="h-full"
+      >
+        <div className="relative group overflow-hidden rounded-t-xl">
           <img
             src={member.imageUrl}
             alt={member.name}
-            className="w-full h-full object-cover transform transition-all duration-700
-              group-hover:scale-110 group-hover:rotate-3"
+            className="w-full h-60 object-cover transform transition-all duration-500
+              group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent 
-            opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)]/90 via-[var(--bg-dark)]/50 to-transparent 
+            opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+            
+          <div className="absolute bottom-4 left-4 bg-[var(--primary)]/20 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-3 py-1">
+            <span className="text-xs font-medium text-white">{member.role}</span>
+          </div>
         </div>
-        <div className="space-y-2 text-center">
-          <h3 className="text-xl font-semibold text-purple-400 group-hover:text-purple-300">
+        
+        <div className="p-6 space-y-3">
+          <h3 className="text-xl font-semibold text-[var(--text-light)] group-hover:text-[var(--primary-light)] transition-colors">
             {member.name}
           </h3>
-          <p className="text-gray-300">{member.role}</p>
-          <p className="text-sm text-gray-400">{member.email}</p>
+          <p className="text-sm text-[var(--text-dim)]">{member.email}</p>
           {showDescription && member.description && (
-            <p className="text-sm text-gray-300 mt-4">{member.description}</p>
+            <p className="text-sm text-[var(--text-dim)] mt-4 leading-relaxed">{member.description}</p>
+          )}
+          
+          {member.socialLinks && (
+            <div className="flex justify-start gap-3 pt-3">
+              {member.socialLinks.map((link, index) => (
+                <a 
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="text-[var(--primary-light)] hover:text-[var(--primary)] transition-colors"
+                >
+                  <span className="sr-only">{link.platform}</span>
+                  {/* Icon would go here */}
+                </a>
+              ))}
+            </div>
           )}
         </div>
       </Card>

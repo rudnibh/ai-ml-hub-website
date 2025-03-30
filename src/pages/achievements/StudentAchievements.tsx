@@ -9,7 +9,7 @@ export function StudentAchievements() {
     <section className="py-20">
       <GradientHeading>
         <div className="flex items-center justify-center gap-2">
-          <Award className="h-8 w-8 text-purple-400" />
+          <Award className="h-8 w-8 text-[var(--primary-light)]" />
           Student Achievements
         </div>
       </GradientHeading>
@@ -23,20 +23,20 @@ export function StudentAchievements() {
                 alt={achievement.title}
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)] via-[var(--bg-dark)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <div className="p-6">
-              <div className="flex items-center space-x-2 text-purple-400 mb-2">
+              <div className="flex items-center space-x-2 text-[var(--primary)] mb-2">
                 <Star className="h-4 w-4" />
                 <span className="text-sm">{achievement.date}</span>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
+              <h3 className="text-xl font-semibold text-[var(--text-light)] mb-2 group-hover:text-[var(--primary-light)] transition-colors">
                 {achievement.title}
               </h3>
-              <p className="text-gray-300 mb-4">{achievement.description}</p>
+              <p className="text-[var(--text-dim)] mb-4">{achievement.description}</p>
               <div className="flex items-center space-x-2">
-                <Users className="h-4 w-4 text-purple-400" />
-                <p className="text-sm text-gray-400">{achievement.students.join(', ')}</p>
+                <Users className="h-4 w-4 text-[var(--primary)]" />
+                <p className="text-sm text-[var(--text-dim)]">{achievement.students.join(', ')}</p>
               </div>
             </div>
           </Card>

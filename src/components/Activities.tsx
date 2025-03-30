@@ -9,13 +9,7 @@ const activities = [
     icon: <Code className="h-8 w-8 text-purple-400" />,
     title: 'Coding Workshops',
     description:
-      'Weekly hands-on sessions covering various programming languages and frameworks.',
-  },
-  {
-    icon: <Users className="h-8 w-8 text-purple-400" />,
-    title: 'Weekly Classes',
-    description:
-      'Weekly Hands on Classes on Machine Learning.',
+      'Hands-on sessions covering various programming languages and frameworks.',
   },
   {
     icon: <Trophy className="h-8 w-8 text-purple-400" />,
@@ -36,7 +30,7 @@ export default function Activities() {
     <section id="activities" className="relative py-20">
       <Container>
         <GradientHeading>Our Activities</GradientHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {activities.map((activity, index) => (
             <Card
               key={index}

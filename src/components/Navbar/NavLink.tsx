@@ -9,8 +9,8 @@ interface NavLinkProps {
 }
 
 export function NavLink({ href, label, isActive, onClick }: NavLinkProps) {
-  const baseClasses = "relative text-gray-300 hover:text-purple-400 transition-colors group py-2";
-  const activeClasses = isActive ? "text-purple-400" : "";
+  const baseClasses = "relative text-white hover:text-purple-300 transition-colors group py-2";
+  const activeClasses = isActive ? "text-purple-300" : "";
 
   if (href.startsWith('/#')) {
     return (
@@ -20,7 +20,7 @@ export function NavLink({ href, label, isActive, onClick }: NavLinkProps) {
         className={`${baseClasses} ${activeClasses}`}
       >
         {label}
-        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+        <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-300 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
       </a>
     );
   }
@@ -31,7 +31,7 @@ export function NavLink({ href, label, isActive, onClick }: NavLinkProps) {
       className={`${baseClasses} ${activeClasses}`}
     >
       {label}
-      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-300 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
     </Link>
   );
 }

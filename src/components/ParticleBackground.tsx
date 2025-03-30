@@ -23,7 +23,11 @@ export default function ParticleBackground() {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fullScreen: {
+          enable: true,
+          zIndex: -1,
+        },
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {
@@ -33,29 +37,48 @@ export default function ParticleBackground() {
             onHover: {
               enable: true,
               mode: "repulse",
+              parallax: {
+                enable: true,
+                force: 20,
+                smooth: 50
+              }
             },
             resize: true,
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 2,
             },
             repulse: {
-              distance: 200,
+              distance: 100,
               duration: 0.4,
             },
+            grab: {
+              distance: 150,
+              links: {
+                opacity: 0.3
+              }
+            }
           },
         },
         particles: {
           color: {
-            value: "#8B5CF6",
+            value: ["#8B5CF6", "#A78BFA", "#7C3AED", "#C4B5FD", "#DDD6FE", "#EC4899"],
           },
           links: {
-            color: "#8B5CF6",
-            distance: 150,
+            color: "#A78BFA",
+            distance: 200,
             enable: true,
-            opacity: 0.2,
-            width: 1,
+            opacity: 0.3,
+            width: 0.7,
+            triangles: {
+              enable: true,
+              color: "#7C3AED",
+              opacity: 0.05
+            }
+          },
+          collisions: {
+            enable: false,
           },
           move: {
             direction: "none",
@@ -63,26 +86,59 @@ export default function ParticleBackground() {
             outModes: {
               default: "bounce",
             },
-            random: false,
-            speed: 1,
+            random: true,
+            speed: 0.6,
             straight: false,
+            trail: {
+              enable: true,
+              length: 3,
+              fillColor: "#2E1065",
+            }
           },
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1200,
             },
-            value: 80,
+            value: 40,
+            max: 50,
           },
           opacity: {
-            value: 0.3,
+            value: 0.4,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 0.3,
+              opacity_min: 0.2,
+              sync: false
+            }
           },
           shape: {
-            type: "circle",
+            type: ["circle", "polygon"],
+            polygon: {
+              sides: 6
+            }
           },
           size: {
             value: { min: 1, max: 3 },
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              size_min: 0.3,
+              sync: false
+            }
           },
+          twinkle: {
+            particles: {
+              enable: true,
+              frequency: 0.03,
+              opacity: 0.5,
+              color: {
+                value: ["#A78BFA", "#C4B5FD"]
+              }
+            }
+          }
         },
         detectRetina: true,
       }}

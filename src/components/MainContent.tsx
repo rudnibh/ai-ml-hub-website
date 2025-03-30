@@ -8,7 +8,7 @@ import Contact from './Contact';
 
 export default function MainContent() {
   return (
-    <main className="relative pt-16">
+    <main className="relative pt-28 z-0">
       <Hero />
       <UpcomingEvent />
       <Activities />
