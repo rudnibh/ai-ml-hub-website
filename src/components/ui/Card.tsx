@@ -21,10 +21,10 @@ export function Card({
   
   // Variant specific styles
   const variantStyles = {
-    default: "bg-[var(--bg-dark)]/50 backdrop-blur-sm border border-[var(--primary-dark)]/30",
-    elevated: "bg-[var(--bg-dark)]/70 backdrop-blur-md shadow-xl shadow-[var(--primary-dark)]/20",
-    bordered: "bg-[var(--bg-dark)]/40 backdrop-blur-sm border-2 border-[var(--primary)]/30",
-    glass: "bg-[var(--bg-dark)]/20 backdrop-blur-xl border border-[var(--primary)]/20"
+    default: "bg-[var(--bg-darker)] border border-[var(--primary-dark)]/30",
+    elevated: "bg-[var(--bg-dark)] shadow-lg shadow-[var(--primary-dark)]/10",
+    bordered: "bg-[var(--bg-darker)] border-2 border-[var(--primary)]/30",
+    glass: "bg-[var(--bg-dark)] border border-[var(--primary)]/20"
   };
   
   // Combine base and variant styles
@@ -44,14 +44,14 @@ export function Card({
       initial={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
       animate={{ 
         boxShadow: hovered 
-          ? '0 10px 25px -5px rgba(139, 92, 246, 0.25), 0 0 10px 5px rgba(139, 92, 246, 0.1)' 
+          ? '0 8px 15px -5px rgba(139, 92, 246, 0.15), 0 0 5px 2px rgba(139, 92, 246, 0.05)' 
           : '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
       }}
       transition={{ duration: 0.3 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileHover={{ 
-        translateY: -4,
+        translateY: -2,
       }}
     >
       <div className="relative z-10">
@@ -60,8 +60,7 @@ export function Card({
       
       {hovered && (
         <div className="absolute inset-0 overflow-hidden -z-10">
-          <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-[var(--primary)] via-[var(--primary)]/30 to-[var(--secondary)]"></div>
-          <div className="absolute -inset-[1px] opacity-30 border border-[var(--primary)]/30 rounded-xl"></div>
+          <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-[var(--primary)] via-[var(--primary)]/20 to-[var(--secondary)]"></div>
         </div>
       )}
     </motion.div>

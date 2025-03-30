@@ -21,12 +21,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full z-50 px-4 py-3">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 py-3">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-purple-900/95 backdrop-blur-md border border-purple-500/30 rounded-2xl shadow-xl shadow-purple-900/30">
+        <div className="bg-[var(--bg-dark)] backdrop-blur-md border-2 border-[var(--primary)]/40 rounded-2xl shadow-xl shadow-[var(--bg-dark)]/50">
           <div className="flex justify-between h-14 px-4">
             <Link to="/" className="flex items-center">
-              <AimlLogo className="h-12 w-13 text-purple-200" />
+              <AimlLogo className="h-12 w-13 text-[var(--primary-light)]" />
               <span className="ml-4 text-xl font-bold text-white">
                 AI/ML HUB
               </span>
@@ -41,7 +41,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white hover:text-purple-300 focus:outline-none"
+                className="text-white hover:text-[var(--primary-light)] focus:outline-none"
               >
                 {isOpen ? (
                   <X className="h-6 w-6" />
