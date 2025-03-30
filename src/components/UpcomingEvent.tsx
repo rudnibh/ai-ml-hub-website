@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Clock, MapPin,Shieldcheck } from 'lucide-react';
+import { Calendar, Clock, MapPin,ShieldCheck } from 'lucide-react';
 import { Card } from './ui/Card';
 
 interface EventProps {
@@ -67,7 +67,7 @@ export default function UpcomingEvent() {
                   <span className="text-gray-300">{currentEvent.location}</span>
                 </div>
                 <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
-                  <Shieldcheck className="h-5 w-5 text-purple-400" />
+                  <ShieldCheck className="h-5 w-5 text-purple-400" />
                   <span className="text-gray-300">{currentEvent.certificate}</span>
                 </div>
               </div>
