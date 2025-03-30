@@ -32,17 +32,19 @@ export function TeamMemberCard({ member, isHighlighted = false, showDescription 
         className="h-full"
       >
         <div className="relative group overflow-hidden rounded-t-xl">
-          <img
-            src={member.imageUrl}
-            alt={member.name}
-            className="w-full h-60 object-cover transform transition-all duration-500
-              group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)]/90 via-[var(--bg-dark)]/50 to-transparent 
-            opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
-            
-          <div className="absolute bottom-4 left-4 bg-[var(--primary)]/20 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-3 py-1">
-            <span className="text-xs font-medium text-white">{member.role}</span>
+          <div className="aspect-[4/5] relative">
+            <img
+              src={member.imageUrl}
+              alt={member.name}
+              className="absolute inset-0 w-full h-full object-cover object-[50%_35%] transform transition-all duration-500
+                group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)]/90 via-[var(--bg-dark)]/50 to-transparent 
+              opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+              
+            <div className="absolute bottom-4 left-4 bg-[var(--primary)]/20 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-3 py-1">
+              <span className="text-xs font-medium text-white">{member.role}</span>
+            </div>
           </div>
         </div>
         

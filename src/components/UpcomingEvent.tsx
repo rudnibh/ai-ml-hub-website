@@ -1,5 +1,7 @@
 import React from 'react';
-import { Calendar, Clock, MapPin,ShieldCheck } from 'lucide-react';
+import { Calendar, Clock, MapPin, ShieldCheck } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Card } from './ui/Card';
 
 interface EventProps {
@@ -10,6 +12,7 @@ interface EventProps {
   description: string;
   imageUrl: string;
   registrationLink: string;
+  whatsappLink: string;
   certificate: string;
 }
 
@@ -23,6 +26,7 @@ const currentEvent: EventProps = {
   imageUrl:
     'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80',
   registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
+  whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
   certificate:
     'Certificates provided !!'
 };
@@ -52,32 +56,42 @@ export default function UpcomingEvent() {
               <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 hover:from-pink-400 hover:to-purple-400 transition-all duration-300">
                 {currentEvent.title}
               </h3>
-              <p className="text-gray-300 mb-6">{currentEvent.description}</p>
+              <p className="text-[var(--text-dim)] mb-6">{currentEvent.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
-                  <Calendar className="h-5 w-5 text-purple-400" />
-                  <span className="text-gray-300">{currentEvent.date}</span>
+                <div className="flex items-center space-x-2 hover:text-[var(--primary)] transition-colors">
+                  <Calendar className="h-5 w-5 text-[var(--primary)]" />
+                  <span className="text-[var(--text-dim)]">{currentEvent.date}</span>
                 </div>
-                <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
-                  <Clock className="h-5 w-5 text-purple-400" />
-                  <span className="text-gray-300">{currentEvent.time}</span>
+                <div className="flex items-center space-x-2 hover:text-[var(--primary)] transition-colors">
+                  <Clock className="h-5 w-5 text-[var(--primary)]" />
+                  <span className="text-[var(--text-dim)]">{currentEvent.time}</span>
                 </div>
-                <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
-                  <MapPin className="h-5 w-5 text-purple-400" />
-                  <span className="text-gray-300">{currentEvent.location}</span>
+                <div className="flex items-center space-x-2 hover:text-[var(--primary)] transition-colors">
+                  <MapPin className="h-5 w-5 text-[var(--primary)]" />
+                  <span className="text-[var(--text-dim)]">{currentEvent.location}</span>
                 </div>
-                <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
-                  <ShieldCheck className="h-5 w-5 text-purple-400" />
-                  <span className="text-gray-300">{currentEvent.certificate}</span>
+                <div className="flex items-center space-x-2 hover:text-[var(--primary)] transition-colors">
+                  <ShieldCheck className="h-5 w-5 text-[var(--primary)]" />
+                  <span className="text-[var(--text-dim)]">{currentEvent.certificate}</span>
                 </div>
               </div>
-              <button
-                onClick={() => window.open(currentEvent.registrationLink, "_blank")}
-                className="group relative w-full md:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px]">
-                <span className="relative z-10">Register Now</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
-            </button>
-
+              
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => window.open(currentEvent.registrationLink, "_blank")}
+                  className="group relative px-6 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px]">
+                  <span className="relative z-10">Register Now</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-dark)] to-[var(--secondary)] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+                </button>
+                
+                <button
+                  onClick={() => window.open(currentEvent.whatsappLink, "_blank")}
+                  className="group relative px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px] flex items-center">
+                  <FontAwesomeIcon icon={faWhatsapp} className="mr-2 h-4 w-4" />
+                  <span className="relative z-10">Join Group</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-700 to-green-800 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+                </button>
+              </div>
             </div>
           </div>
         </Card>
