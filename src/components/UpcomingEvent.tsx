@@ -13,15 +13,15 @@ interface EventProps {
 }
 
 const currentEvent: EventProps = {
-  title: 'AI Workshop: Deep Learning Fundamentals',
-  date: 'March 25, 2024',
-  time: '2:00 PM - 5:00 PM',
-  location: 'CS Building, Room 201',
+  title: 'GENESIS : Introduction to Gen-AI ( Workshop ) ',
+  date: 'April 2nd-5th 2025',
+  time: '5:00 PM - 7:00 PM',
+  location: 'CL-1 ( ABB 1 )',
   description:
-    'Join us for an intensive workshop on deep learning fundamentals. Learn about neural networks, backpropagation, and implement your first AI model!',
+    'Join us for an immersive workshop on Generative AI! Explore RAG, AI agents, essential AI tools, and build your own AI-powered application!',
   imageUrl:
     'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80',
-  registrationLink: '#',
+  registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
 };
 
 export default function UpcomingEvent() {
@@ -64,10 +64,13 @@ export default function UpcomingEvent() {
                   <span className="text-gray-300">{currentEvent.location}</span>
                 </div>
               </div>
-              <button className="group relative w-full md:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px]">
+              <button
+                onClick={() => window.open(currentEvent.registrationLink, "_blank")}
+                className="group relative w-full md:w-auto px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold transition-all duration-300 transform hover:translate-y-[-2px]">
                 <span className="relative z-10">Register Now</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
-              </button>
+            </button>
+
             </div>
           </div>
         </Card>
