@@ -7,7 +7,7 @@ import { teamData } from '../data/team';
 
 export default function About() {
   return (
-    <div className="min-h-screen pt-28 z-0">
+    <div className="min-h-screen pt-32 relative">
       <Container withFade>
         <section id="about" className="relative py-20">
           <div className="flex flex-col items-center">

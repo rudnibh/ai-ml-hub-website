@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function Projects() {
   return (
-    <div className="min-h-screen pt-28 z-0">
+    <div className="min-h-screen pt-32 relative">
       <Container withFade>
         <section className="py-20">
           <div className="flex flex-col items-center mb-12">

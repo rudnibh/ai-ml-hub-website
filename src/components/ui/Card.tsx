@@ -21,10 +21,10 @@ export function Card({
   
   // Variant specific styles
   const variantStyles = {
-    default: "bg-[var(--bg-darker)]",
-    elevated: "bg-[var(--bg-dark)] shadow-lg shadow-[var(--primary-dark)]/10",
-    bordered: "bg-[var(--bg-darker)]",
-    glass: "bg-[var(--bg-dark)]"
+    default: "bg-purple-950",
+    elevated: "bg-purple-950 shadow-lg shadow-[var(--primary-dark)]/10",
+    bordered: "bg-purple-950",
+    glass: "bg-purple-950"
   };
   
   // Combine base and variant styles

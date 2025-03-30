@@ -23,7 +23,7 @@ export function Container({
     full: 'max-w-full'
   };
   
-  const baseStyles = `${sizes[size]} mx-auto px-4 sm:px-6 lg:px-8 relative z-10`;
+  const baseStyles = `${sizes[size]} mx-auto px-4 sm:px-6 lg:px-8 relative z-0`;
   
   if (withFade) {
     return (

@@ -5,7 +5,7 @@ import { StudentAchievements } from './StudentAchievements';
 
 export default function Achievements() {
   return (
-    <div className="min-h-screen pt-28 z-0">
+    <div className="min-h-screen pt-32 relative">
       <Container>
         <HallOfFame />
         <StudentAchievements />
