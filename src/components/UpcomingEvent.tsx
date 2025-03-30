@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Clock, MapPin } from 'lucide-react';
+import { Calendar, Clock, MapPin,Shieldcheck } from 'lucide-react';
 import { Card } from './ui/Card';
 
 interface EventProps {
@@ -10,6 +10,7 @@ interface EventProps {
   description: string;
   imageUrl: string;
   registrationLink: string;
+  certificate: string;
 }
 
 const currentEvent: EventProps = {
@@ -22,6 +23,8 @@ const currentEvent: EventProps = {
   imageUrl:
     'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80',
   registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
+  certificate:
+    'Certificates provided !!'
 };
 
 export default function UpcomingEvent() {
@@ -62,6 +65,10 @@ export default function UpcomingEvent() {
                 <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
                   <MapPin className="h-5 w-5 text-purple-400" />
                   <span className="text-gray-300">{currentEvent.location}</span>
+                </div>
+                <div className="flex items-center space-x-2 hover:text-purple-400 transition-colors">
+                  <Shieldcheck className="h-5 w-5 text-purple-400" />
+                  <span className="text-gray-300">{currentEvent.certificate}</span>
                 </div>
               </div>
               <button
