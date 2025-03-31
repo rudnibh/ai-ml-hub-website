@@ -17,7 +17,7 @@ export const projects: Project[] = [
     id: '2',
     title: 'Photobooth',
     description: 'Transform photos into artistic portraits using Stable Diffusion.',
-    students: ['Agnibha Nanda, Aarnya Jain'],
+    students: ['Agnibha Nanda', 'Aarnya Jain'],
     technologies: ['Stable Diffusion', 'Typescript',],
     image: 'photobooth.jpg',
     date: '2025',
@@ -60,5 +60,18 @@ export const projects: Project[] = [
     year: '2022',
     likes: 43,
     sourceUrl: 'https://github.com/example/sentiment-analysis'
+  },
+  {
+    id: '6',
+    title: 'Jaypee Learning Hub',
+    description: 'Jaypee Learning Hub is designed to help JIITians and other students by providing well-organized academic resources.',
+    students: ['Swayam Gupta', 'Rishu Goyal'],
+    technologies: ['HTML','CSS', 'JS', 'PHP', 'MySQL'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
+    date: '2025-01-01',
+    year: '2025',
+    likes: 43,
+    liveUrl: 'https://jaypeelearninghub.great-site.net',
+    sourceUrl: 'https://github.com/SwayamGupta12345/Jaypee_learning_hub'
   }
 ];
