@@ -110,12 +110,12 @@ body {
 }
 
 .card-modern {
-  @apply bg-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-xl;
+  @apply bg-[#0F1729]/80 backdrop-blur-sm border border-[#1E1B4B]/40 rounded-xl;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card-modern:hover {
-  @apply border-purple-800/30 shadow-md shadow-purple-500/10;
+  @apply border-purple-800/20 shadow-md shadow-purple-500/5;
   transform: translateY(-2px);
 }
 

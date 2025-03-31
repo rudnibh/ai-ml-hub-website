@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.6 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-[#0B0F1A]/60 to-transparent opacity-90" />
         
         <div className="absolute top-4 right-4 flex gap-2">
           {project.liveUrl && (
@@ -70,7 +70,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.technologies.map((tech) => (
             <div
               key={tech}
-              className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-[var(--text-light)] flex items-center"
+              className="px-3 py-1 rounded-full bg-[#131836]/40 border border-[#1E1B4B]/30 text-xs text-[var(--text-light)] flex items-center"
             >
               <Tag className="h-3 w-3 mr-1 text-[var(--primary)]" />
               {tech}
@@ -78,7 +78,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        <div className="pt-4 border-t border-white/5">
+        <div className="pt-4 border-t border-[#1E1B4B]/30">
           <p className="text-sm text-[var(--text-dim)] mb-4 italic">
             By: {project.students.join(', ')}
           </p>

@@ -17,7 +17,7 @@ export const projects: Project[] = [
     id: '2',
     title: 'Photobooth',
     description: 'Transform photos into artistic portraits using Stable Diffusion.',
-    students: ['Agnibha Nanda'],
+    students: ['Agnibha Nanda, Aarnya Jain'],
     technologies: ['Stable Diffusion', 'Typescript',],
     image: 'photobooth.jpg',
     date: '2025',

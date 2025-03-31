@@ -24,14 +24,14 @@ export function GlowingCard({ children, className = '' }: GlowingCardProps) {
     <motion.div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-purple-900/20 ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-[#0F1729]/90 to-[#111827]/90 backdrop-blur-sm border border-purple-900/20 ${className}`}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <div
         className="absolute pointer-events-none inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139,92,246,0.15), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139,92,246,0.10), transparent 40%)`,
         }}
       />
       <div className="relative z-10">{children}</div>

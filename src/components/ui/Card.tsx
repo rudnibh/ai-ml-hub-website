@@ -21,10 +21,10 @@ export function Card({
   
   // Variant specific styles
   const variantStyles = {
-    default: "bg-purple-950",
-    elevated: "bg-purple-950 shadow-lg shadow-[var(--primary-dark)]/10",
-    bordered: "bg-purple-950",
-    glass: "bg-purple-950"
+    default: "bg-[#0F1729]/90 border border-[#1E1B4B]/50",
+    elevated: "bg-[#0F1729]/90 border border-[#1E1B4B]/50 shadow-lg shadow-[var(--primary-dark)]/10",
+    bordered: "bg-[#0F1729]/90 border border-purple-900/30",
+    glass: "bg-[#0F1729]/80 backdrop-blur-md border border-purple-900/20"
   };
   
   // Combine base and variant styles
@@ -60,7 +60,7 @@ export function Card({
       
       {hovered && (
         <div className="absolute inset-0 overflow-hidden -z-10">
-          <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-[var(--primary)] via-[var(--primary)]/20 to-[var(--secondary)]"></div>
+          <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-[var(--primary)] via-[var(--primary)]/10 to-[var(--secondary)]"></div>
         </div>
       )}
     </motion.div>
