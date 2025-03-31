@@ -18,23 +18,23 @@ export const hallOfFame = [
   export const studentAchievements = [
     {
       title: "International ML Competition Winners",
-      description: "First place in the Global AI Challenge 2024",
-      students: ["Priya Sharma", "Arun Kumar"],
+      description: "Pursuing masters in Santa Clara University in USA ,Acieved a Microsoft SWE Offer",
+      students: ["Aman Jain"],
       image: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&q=80",
       date: "March 2024"
     },
     {
-      title: "Research Paper Publication",
-      description: "Published in top-tier IEEE conference on AI Ethics",
-      students: ["Vikram Singh"],
+      title: "National Hackathon Winner",
+      description: "Won first place in the Smart India Hackathon 2024",
+      students: ["Sanat Walia"],
       image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80",
-      date: "February 2024"
+      date: "December 2022"
     },
     {
-      title: "National AI Hackathon Champions",
-      description: "Won first prize for innovative healthcare AI solution",
-      students: ["Neha Patel", "Raj Malhotra", "Amit Kumar"],
+      title: "National Hackathon Winner",
+      description: "Won first place consecutively in the Smart India Hackathon 2023 and 2022",
+      students: ["Harsh Dhariwal"],
       image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80",
-      date: "January 2024"
+      date: "December 2023 and 2022"
     }
   ];
