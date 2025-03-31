@@ -80,7 +80,7 @@ export const projects: Project[] = [
     description: 'Study Helper helps students by giving them with resources and guides them in their studies.',
     students: ['Swayam Gupta', 'Rishu Goyal','Yashita Gogia'],
     technologies: ['HTML','CSS', 'JS', 'React', 'Python','Crew AI'],
-    image: 'jlh.png',
+    image: 'std.jpg',
     date: '2025-04-01',
     year: '2025',
     sourceUrl: 'https://github.com/yashita7/StudyHelper'
