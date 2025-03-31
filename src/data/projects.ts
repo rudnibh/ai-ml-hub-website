@@ -73,5 +73,16 @@ export const projects: Project[] = [
     likes: 43,
     liveUrl: 'https://jaypeelearninghub.great-site.net',
     sourceUrl: 'https://github.com/SwayamGupta12345/Jaypee_learning_hub'
+  },
+  {
+    id: '7',
+    title: 'Study Helper',
+    description: 'Study Helper helps students by giving them with resources and guides them in their studies.',
+    students: ['Swayam Gupta', 'Rishu Goyal','Yashita Gogia'],
+    technologies: ['HTML','CSS', 'JS', 'React', 'Python','Crew AI'],
+    image: 'jlh.png',
+    date: '2025-04-01',
+    year: '2025',
+    sourceUrl: 'https://github.com/yashita7/StudyHelper'
   }
 ];
