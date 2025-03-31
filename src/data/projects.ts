@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description: 'Jaypee Learning Hub is designed to help JIITians and other students by providing well-organized academic resources.',
     students: ['Swayam Gupta', 'Rishu Goyal'],
     technologies: ['HTML','CSS', 'JS', 'PHP', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80',
+    image: 'jlh.png',
     date: '2025-01-01',
     year: '2025',
     likes: 43,
