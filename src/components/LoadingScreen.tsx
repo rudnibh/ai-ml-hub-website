@@ -25,7 +25,7 @@ export default function LoadingScreen() {
           times: [0, 0.7, 1],
           ease: "easeInOut"
         }}
-        className="fixed inset-0 bg-gray-900 z-50 flex flex-col items-center justify-center overflow-hidden"
+        className="fixed inset-0 bg-[#0B0F1A] z-50 flex flex-col items-center justify-center overflow-hidden"
       >
         <div className="relative mb-8">
           <motion.div

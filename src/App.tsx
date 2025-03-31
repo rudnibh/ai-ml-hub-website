@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-[var(--bg-darker)] text-[var(--text-light)] animated-gradient-bg relative overflow-hidden">
+      <div className="min-h-screen bg-[#0B0F1A] text-[var(--text-light)] relative overflow-hidden">
         <AnimatePresence>
           {loading && <LoadingScreen />}
         </AnimatePresence>
@@ -45,7 +45,7 @@ export default function App() {
           <ParticleBackground />
           <div className="fixed inset-0 grid-background pointer-events-none z-[-5]"></div>
           <div className="noise-texture"></div>
-          <div className="fixed inset-0 bg-gradient-to-b from-transparent via-[var(--bg-gradient-start)]/20 to-[var(--bg-gradient-end)]/60 pointer-events-none z-[-3]"></div>
+          <div className="fixed inset-0 bg-gradient-to-b from-transparent via-[#131836]/20 to-[#1E1B4B]/30 pointer-events-none z-[-3]"></div>
           
           <Navbar />
           <Routes>

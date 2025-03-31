@@ -63,22 +63,17 @@ export default function ParticleBackground() {
         },
         particles: {
           color: {
-            value: ["#8B5CF6", "#A78BFA", "#7C3AED", "#C4B5FD", "#DDD6FE", "#EC4899"],
+            value: ["#8B5CF6", "#7C3AED", "#6D28D9"],
           },
           links: {
-            color: "#A78BFA",
-            distance: 200,
+            color: "#4C1D95",
+            distance: 150,
             enable: true,
             opacity: 0.3,
-            width: 0.7,
-            triangles: {
-              enable: true,
-              color: "#7C3AED",
-              opacity: 0.05
-            }
+            width: 1
           },
           collisions: {
-            enable: false,
+            enable: true,
           },
           move: {
             direction: "none",
@@ -86,48 +81,25 @@ export default function ParticleBackground() {
             outModes: {
               default: "bounce",
             },
-            random: true,
-            speed: 0.6,
+            random: false,
+            speed: 0.5,
             straight: false,
-            trail: {
-              enable: true,
-              length: 3,
-              fillColor: "#2E1065",
-            }
           },
           number: {
             density: {
               enable: true,
-              area: 1200,
+              area: 800,
             },
-            value: 40,
-            max: 50,
+            value: 80,
           },
           opacity: {
             value: 0.4,
-            random: true,
-            anim: {
-              enable: true,
-              speed: 0.3,
-              opacity_min: 0.2,
-              sync: false
-            }
           },
           shape: {
-            type: ["circle", "polygon"],
-            polygon: {
-              sides: 6
-            }
+            type: "circle",
           },
           size: {
             value: { min: 1, max: 3 },
-            random: true,
-            anim: {
-              enable: true,
-              speed: 1,
-              size_min: 0.3,
-              sync: false
-            }
           },
           twinkle: {
             particles: {

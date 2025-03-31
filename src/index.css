@@ -7,10 +7,10 @@
   --primary-dark: #7C3AED;
   --primary-light: #A78BFA;
   --secondary: #EC4899;
-  --bg-dark: #4C1D95;
-  --bg-darker: #2E1065;
-  --bg-gradient-start: #5B21B6;
-  --bg-gradient-end: #3B0764;
+  --bg-dark: #111827;
+  --bg-darker: #0B0F1A;
+  --bg-gradient-start: #1E1B4B;
+  --bg-gradient-end: #0F172A;
   --text-light: #F8FAFC;
   --text-dim: #CBD5E1;
 }
@@ -26,7 +26,7 @@ body {
 }
 
 .animated-gradient-bg {
-  background: linear-gradient(-45deg, var(--bg-darker), var(--bg-dark), #4338CA, #6D28D9);
+  background: linear-gradient(-45deg, #0B0F1A, #111827, #1E1B4B, #131836);
   background-size: 400% 400%;
   animation: gradient-animation 30s ease infinite;
 }
@@ -39,10 +39,10 @@ body {
 
 .grid-background {
   background-image: 
-    radial-gradient(circle at 25% 25%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
-    linear-gradient(to right, rgba(167, 139, 250, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 139, 250, 0.05) 1px, transparent 1px);
+    radial-gradient(circle at 25% 25%, rgba(236, 72, 153, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+    linear-gradient(to right, rgba(167, 139, 250, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(167, 139, 250, 0.03) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px;
   animation: grid-pulse 20s ease-in-out infinite;
 }
@@ -54,9 +54,9 @@ body {
 
 .hero-grid {
   background-image: 
-    radial-gradient(circle at center, rgba(139, 92, 246, 0.2) 0%, transparent 70%),
-    linear-gradient(to right, rgba(167, 139, 250, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 139, 250, 0.1) 1px, transparent 1px);
+    radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%),
+    linear-gradient(to right, rgba(167, 139, 250, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(167, 139, 250, 0.08) 1px, transparent 1px);
   background-size: 100% 100%, 24px 24px, 24px 24px;
 }
 
