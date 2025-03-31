@@ -18,7 +18,7 @@ export const hallOfFame = [
   export const studentAchievements = [
     {
       title: "International ML Competition Winners",
-      description: "Pursuing masters in Santa Clara University in USA ,Acieved a Microsoft SWE Offer",
+      description: "Pursuing masters in Santa Clara University in USA , Achieved a Microsoft SWE Offer",
       students: ["Aman Jain"],
       image: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&q=80",
       date: "March 2024"
