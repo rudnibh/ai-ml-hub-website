@@ -84,5 +84,16 @@ export const projects: Project[] = [
     date: '2025-04-01',
     year: '2025',
     sourceUrl: 'https://github.com/yashita7/StudyHelper'
+  },  {
+    id: '8',
+    title: 'AI-Powered-Commenter',
+    description: '⁠AI Powered Commenter - This project is purely built on python using Streamlit framework and Gemini API. You just need to click or upload your photo to it and then get an AI Powered fun comment. Don’t take the comment seriously as it is AI',
+    students: ['Aryan Varshney', 'Tarushi Goel '],
+    technologies: ['Python'],
+    image: '8.jpg',
+    date: '2025-03-25',
+    year: '2025',
+    sourceUrl: 'https://github.com/AryanV-Coder/AI-Powered-Commenter',
+    liveUrl: 'https://ai-powered-commenter.streamlit.app'
   }
 ];
