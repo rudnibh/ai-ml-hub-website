@@ -10,18 +10,18 @@ const events = [
     title: "Mindescape",
     date: "March 01, 2024",
     image: "mindescape.JPG",
-    description: "AI Powered Minigames"
+    description: "Multiple AI based minigames where multiple teams compete against each other"
   },
   {
     title: "Capturing Pics",
     date: "March 01, 2024",
     image: "capturingpics.JPG",
-    description: "AI Powered Photobooth"
+    description: "AI Powered Photobooth, Where people got their photos clicked and get back an AI generated Potrait of themselves"
   },
   {
     title: "Prompt Crafting Competetion",
     date: "November 18, 2024",
-    image: "https://i.ibb.co/JpM215x/first-class.jpg",
+    image: "carnival.png",
     description: "Competition on Crafting beautiful prompts to leverage the power of Generative AI"
   },
   {
@@ -131,13 +131,6 @@ export default function EventsSection() {
                     {event.title}
                   </h3>
                   <p className="text-[var(--text-dim)] mb-4">{event.description}</p>
-                  <motion.div 
-                    className="text-[var(--primary)] flex items-center text-sm font-medium"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    View details <ArrowRight className="h-3 w-3 ml-1" />
-                  </motion.div>
                 </div>
               </Card>
             </motion.div>

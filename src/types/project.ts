@@ -7,7 +7,6 @@ export interface Project {
     image: string;
     date: string;
     year: string;
-    likes?: number;
     liveUrl?: string;
     sourceUrl?: string;
   }
