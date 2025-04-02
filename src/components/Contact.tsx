@@ -15,7 +15,7 @@ export default function Contact() {
                 href="mailto:AIMLHUBJIIT@gmail.com"
                 className="text-purple-400 hover:text-purple-300 transition-colors"
               >
-                aiml.jiit24@gmail.com
+                jiit.aiml@gmail.com
               </a>
             </div>
             <div className="flex justify-center space-x-6">
