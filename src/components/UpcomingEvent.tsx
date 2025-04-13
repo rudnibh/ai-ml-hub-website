@@ -24,7 +24,7 @@ const currentEvent: EventProps = {
   description:
     'Join us for an immersive workshop on Generative AI! Explore RAG, AI agents, essential AI tools, and build your own AI-powered application!',
   imageUrl:
-    'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80',
+    'Genesis.jpg',
   registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
   whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
   certificate:

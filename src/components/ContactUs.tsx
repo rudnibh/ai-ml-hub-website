@@ -59,7 +59,7 @@ export default function ContactUs() {
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <Mail className="h-6 w-6 text-purple-200" />
-                  <span>aiml.jiit24@gmail.com</span>
+                  <span>jiit.aiml@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-6 w-6 text-purple-200" />
