@@ -16,6 +16,13 @@ export const hallOfFame = [
   ];
   
   export const studentAchievements = [
+        {
+      title: "Google Girl Hackathon Winner",
+      description: "Won the Google Girl Hackathon runner up (2nd position) A total of 34000+ students from 3500+ colleges participated in this Hackathon.Received a total reward of Rs 1 Lakh.",
+      students: ["Manya Jindal"],
+      image: "manya_jindal.jpg",
+      date: "2024"
+    },
     {
       title: "International ML Competition Winners",
       description: "Pursuing masters in Santa Clara University in USA , Achieved a Microsoft SWE Offer",
@@ -24,10 +31,10 @@ export const hallOfFame = [
       date: "March 2024"
     },
     {
-      title: "National Hackathon Winner",
+      title: "Smart India Hackathon Winner",
       description: "Won first place in the Smart India Hackathon 2024",
       students: ["Sanat Walia"],
-      image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&q=80",
+      image: "sih.jpg",
       date: "December 2022"
     },
     {
