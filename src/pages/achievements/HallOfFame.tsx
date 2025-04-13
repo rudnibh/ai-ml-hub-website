@@ -36,11 +36,11 @@ export function HallOfFame() {
             viewport={{ once: true }}
           >
             <Card variant="glass" className="group overflow-hidden h-full">
-              <div className="relative aspect-video overflow-hidden rounded-t-xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-t-xl">
                 <motion.img
                   src={alumni.image}
                   alt={alumni.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[50%_35%]"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />

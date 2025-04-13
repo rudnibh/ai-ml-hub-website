@@ -7,6 +7,7 @@ interface TeamMember {
   role: string;
   email: string;
   imageUrl: string;
+  linkedinLink?: string;
 }
 
 interface TeamTreeProps {
@@ -142,7 +143,17 @@ function TeamMemberCard({ member, isHighlighted = false }: { member: TeamMember;
             {member.name}
           </h3>
           <p className="text-gray-300">{member.role}</p>
-          <p className="text-sm text-gray-400">{member.email}</p>
+          {member.linkedinLink && (
+            <a 
+              href={member.linkedinLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center text-sm text-gray-400 hover:text-blue-400 transition-colors"
+            >
+              <span className="mr-1">in</span>
+              <span>LinkedIn</span>
+            </a>
+          )}
         </div>
       </Card>
     </motion.div>

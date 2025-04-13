@@ -1,9 +1,15 @@
 export interface TeamMember {
   name: string;
   role: string;
-  email: string;
+  linkedinLink?: string;
   imageUrl: string;
   description?: string;
+  socialLinks?: SocialLink[];
+}
+
+export interface SocialLink {
+  platform: string;
+  url: string;
 }
 
 export interface TeamHeads {

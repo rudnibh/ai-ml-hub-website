@@ -17,11 +17,11 @@ export function StudentAchievements() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
         {studentAchievements.map((achievement, index) => (
           <Card key={index} className="group overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
-            <div className="relative aspect-video overflow-hidden">
+            <div className="relative aspect-[16/9] overflow-hidden">
               <img
                 src={achievement.image}
                 alt={achievement.title}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover object-[50%_35%] transform group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)] via-[var(--bg-dark)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

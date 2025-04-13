@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 import { Card } from '../ui/Card';
 import type { TeamMember } from '../../types/team';
 
@@ -52,7 +53,19 @@ export function TeamMemberCard({ member, isHighlighted = false, showDescription 
           <h3 className="text-xl font-semibold text-[var(--text-light)] group-hover:text-[var(--primary-light)] transition-colors">
             {member.name}
           </h3>
-          <p className="text-sm text-[var(--text-dim)]">{member.email}</p>
+          
+          {member.linkedinLink && (
+            <a 
+              href={member.linkedinLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center text-sm text-[var(--text-dim)] hover:text-blue-400 transition-colors"
+            >
+              <Linkedin className="h-4 w-4 mr-2" />
+              <span>Connect on LinkedIn</span>
+            </a>
+          )}
+          
           {showDescription && member.description && (
             <p className="text-sm text-[var(--text-dim)] mt-4 leading-relaxed">{member.description}</p>
           )}

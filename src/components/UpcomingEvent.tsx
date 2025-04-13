@@ -16,20 +16,20 @@ interface EventProps {
   certificate: string;
 }
 
-const currentEvent: EventProps = {
-  title: 'GENESIS : Introduction to Gen-AI ( Workshop ) ',
-  date: 'April 2nd-5th 2025',
-  time: '5:00 PM - 7:00 PM',
-  location: 'CL-1 ( ABB 1 )',
-  description:
-    'Join us for an immersive workshop on Generative AI! Explore RAG, AI agents, essential AI tools, and build your own AI-powered application!',
-  imageUrl:
-    'Genesis.jpg',
-  registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
-  whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
-  certificate:
-    'Certificates provided !!'
-};
+// const currentEvent: EventProps = {
+//   title: 'GENESIS : Introduction to Gen-AI ( Workshop ) ',
+//   date: 'April 2nd-5th 2025',
+//   time: '5:00 PM - 7:00 PM',
+//   location: 'CL-1 ( ABB 1 )',
+//   description:
+//     'Join us for an immersive workshop on Generative AI! Explore RAG, AI agents, essential AI tools, and build your own AI-powered application!',
+//   imageUrl:
+//     'Genesis.jpg',
+//   registrationLink: 'https://forms.gle/y5Ckj7N56fF7hChr5',
+//   whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
+//   certificate:
+//     'Certificates provided !!'
+// };
 
 export default function UpcomingEvent() {
   return (

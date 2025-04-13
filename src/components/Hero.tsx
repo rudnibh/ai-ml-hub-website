@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {/* Workshop Banner */}
-        <div className="w-full max-w-2xl bg-purple-900/30 backdrop-blur-sm rounded-xl border border-purple-500/20 p-6 mb-8">
+        {/* <div className="w-full max-w-2xl bg-purple-900/30 backdrop-blur-sm rounded-xl border border-purple-500/20 p-6 mb-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-white mb-2">
               GENESIS: Intro to Gen AI Workshop
@@ -70,7 +70,7 @@ export default function Hero() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Connect Button */}
         <div className="relative group">

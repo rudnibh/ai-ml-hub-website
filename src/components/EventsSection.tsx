@@ -7,6 +7,12 @@ import { motion } from 'framer-motion';
 
 const events = [
   {
+    title: "GENESIS : Introduction to Gen-AI",
+    date: "April 2nd-5th, 2025",
+    image: "gen.jpg",
+    description: "Immersive workshop on Generative AI, RAG, AI agents, essential AI tools, and building your own AI-powered application!"
+  },
+  {
     title: "Mindescape",
     date: "March 01, 2024",
     image: "mindescape.JPG",

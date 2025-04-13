@@ -35,7 +35,7 @@ export const hallOfFame = [
       description: "Won first place in the Smart India Hackathon 2024",
       students: ["Sanat Walia"],
       image: "sih.jpg",
-      date: "December 2022"
+      date: "2024"
     },
     {
       title: "National Hackathon Winner",
