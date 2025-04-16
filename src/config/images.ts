@@ -7,7 +7,7 @@ export const images = {
   team: {
     facultyAdvisor: 'https://i.ibb.co/QCQSkC6/png-1.png',
     placeholders: {
-      president: 'https://i.ibb.co/YLf3L4S/IMG-20240910-232730.jpg',
+      president: 'https://ibb.co/Q7K6JcGG',
       Senior1: 'https://i.ibb.co/RYv4kHV/Whats-App-Image-2024-09-10-at-23-24-21.jpg',
       Senior2: 'https://i.ibb.co/bQ7hTT9/png-3.png',
       Senior3: 'https://i.ibb.co/DDNGm2G/png-2.png',
