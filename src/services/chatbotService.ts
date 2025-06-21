@@ -14,7 +14,7 @@ class ChatbotService {
 
   async sendMessage(message: string): Promise<ChatResponse> {
     try {
-      const response = await fetch(`${this.baseUrl}/chat`, {
+      const response = await fetch(`https://aimlhub-chatbot.onrender.com/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ class ChatbotService {
 
   async checkHealth(): Promise<boolean> {
     try {
-      const response = await fetch(`${this.baseUrl}/health`, {
+      const response = await fetch(`https://aimlhub-chatbot.onrender.com/health`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

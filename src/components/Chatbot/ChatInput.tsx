@@ -13,24 +13,34 @@ export function ChatInput({ onSendMessage, isLoading, disabled = false }: ChatIn
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (message.trim() && !isLoading && !disabled) {
+      console.log("📤 Submitting message:", message);
       onSendMessage(message.trim());
       setMessage('');
+    } else {
+      console.log("⛔ Submission blocked - Either loading or empty");
     }
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
+      console.log("⌨️ Enter key pressed");
       handleSubmit(e);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 p-4 border-t border-[var(--primary)]/20">
+    <form
+      onSubmit={handleSubmit}
+      className="flex gap-2 p-4 border-t border-[var(--primary)]/20 bg-[#0D0A2D] z-50 relative"
+    >
       <div className="flex-1 relative">
         <textarea
           value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          onChange={(e) => {
+            setMessage(e.target.value);
+            console.log("✍️ Typing:", e.target.value);
+          }}
           onKeyPress={handleKeyPress}
           placeholder="Ask me anything about AI/ML Hub..."
           disabled={disabled || isLoading}
@@ -39,6 +49,7 @@ export function ChatInput({ onSendMessage, isLoading, disabled = false }: ChatIn
           style={{ minHeight: '48px', maxHeight: '120px' }}
         />
       </div>
+
       <button
         type="submit"
         disabled={!message.trim() || isLoading || disabled}

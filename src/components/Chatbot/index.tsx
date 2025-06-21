@@ -22,6 +22,7 @@ export default function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const [isOnline, setIsOnline] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if chatbot API is online
@@ -52,7 +53,9 @@ export default function Chatbot() {
 
   useEffect(() => {
     // Scroll to bottom when new messages are added
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [messages]);
 
   const handleSendMessage = async (text: string) => {
@@ -133,7 +136,7 @@ export default function Chatbot() {
             className={`fixed z-50 ${
               isExpanded
                 ? 'inset-4 md:inset-8'
-                : 'bottom-6 right-6 w-96 h-[500px]'
+                : 'bottom-6 right-6 w-96 h-[600px]'
             }`}
           >
             <Card className="h-full flex flex-col overflow-hidden">
@@ -144,20 +147,30 @@ export default function Chatbot() {
                 isOnline={isOnline}
               />
 
-              <div className="flex-1 overflow-y-auto">
+              {/* Messages Container - Fixed height with scrolling */}
+              <div 
+                ref={messagesContainerRef}
+                className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--primary)]/30 scrollbar-track-transparent"
+                style={{ 
+                  height: isExpanded ? 'calc(100vh - 200px)' : '400px',
+                  minHeight: '300px'
+                }}
+              >
                 {messages.length === 1 ? (
-                  <div>
-                    <div className="p-4">
+                  <div className="h-full flex flex-col">
+                    <div className="p-4 flex-shrink-0">
                       <ChatMessage
                         message={messages[0].text}
                         isBot={messages[0].isBot}
                         timestamp={messages[0].timestamp}
                       />
                     </div>
-                    <ChatSuggestions onSelectSuggestion={handleSuggestionClick} />
+                    <div className="flex-1 overflow-y-auto">
+                      <ChatSuggestions onSelectSuggestion={handleSuggestionClick} />
+                    </div>
                   </div>
                 ) : (
-                  <div className="p-4">
+                  <div className="p-4 space-y-4 min-h-full">
                     {messages.map((message) => (
                       <ChatMessage
                         key={message.id}
@@ -166,16 +179,39 @@ export default function Chatbot() {
                         timestamp={message.timestamp}
                       />
                     ))}
+                    
+                    {/* Loading indicator */}
+                    {isLoading && (
+                      <div className="flex justify-start">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] flex items-center justify-center">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        </div>
+                        <div className="ml-3 max-w-[80%]">
+                          <div className="px-4 py-3 rounded-2xl bg-[#1E1B4B]/50 border border-[var(--primary)]/20 text-[var(--text-light)] rounded-bl-md">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-[var(--primary)] rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                              <div className="w-2 h-2 bg-[var(--primary)] rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                              <div className="w-2 h-2 bg-[var(--primary)] rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Scroll anchor */}
                     <div ref={messagesEndRef} />
                   </div>
                 )}
               </div>
 
-              <ChatInput
-                onSendMessage={handleSendMessage}
-                isLoading={isLoading}
-                disabled={!isOnline}
-              />
+              {/* Input Container - Fixed at bottom */}
+              <div className="flex-shrink-0">
+                <ChatInput
+                  onSendMessage={handleSendMessage}
+                  isLoading={isLoading}
+                  disabled={!isOnline}
+                />
+              </div>
             </Card>
           </motion.div>
         )}
