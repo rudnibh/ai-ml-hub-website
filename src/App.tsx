@@ -8,6 +8,7 @@ import MainContent from './components/MainContent';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Achievements from './pages/achievements';
+import Chatbot from './components/Chatbot';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -57,6 +58,9 @@ export default function App() {
           <footer className="relative glass-morphism mt-12 border-t border-purple-400/10 text-[var(--text-dim)] py-6 text-center">
             <p>&copy; {new Date().getFullYear()} AI/ML HUB. All rights reserved.</p>
           </footer>
+          
+          {/* Global Chatbot - Available on all pages */}
+          <Chatbot />
         </motion.div>
       </div>
     </Router>

@@ -5,6 +5,7 @@ import Activities from './Activities';
 import EventsSection from './EventsSection';
 import ContactUs from './ContactUs';
 import Contact from './Contact';
+import Chatbot from './Chatbot';
 
 export default function MainContent() {
   return (
@@ -15,6 +16,7 @@ export default function MainContent() {
       <EventsSection />
       <ContactUs />
       <Contact />
+      <Chatbot />
     </main>
   );
 }
