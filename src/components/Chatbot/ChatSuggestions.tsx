@@ -7,6 +7,7 @@ interface ChatSuggestionsProps {
 
 const suggestions = [
   "What is AI/ML Hub?",
+  "Who Created You ",
   "Tell me about upcoming events",
   "Who are the team members?",
   "How can I join AI/ML Hub?",
