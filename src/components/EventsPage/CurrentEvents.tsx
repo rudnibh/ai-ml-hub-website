@@ -91,18 +91,18 @@ export function CurrentEvents() {
                       <Calendar className="h-5 w-5 text-[var(--primary)]" />
                       <span className="text-[var(--text-light)]">{event.date}</span>
                     </div>
-                    <div className="flex items-center space-x-3 hover:text-[var(--primary)] transition-colors">
+                    {/* <div className="flex items-center space-x-3 hover:text-[var(--primary)] transition-colors">
                       <Clock className="h-5 w-5 text-[var(--primary)]" />
                       <span className="text-[var(--text-light)]">{event.time}</span>
-                    </div>
+                    </div> */}
                     <div className="flex items-center space-x-3 hover:text-[var(--primary)] transition-colors">
                       <MapPin className="h-5 w-5 text-[var(--primary)]" />
                       <span className="text-[var(--text-light)]">{event.location}</span>
                     </div>
-                    <div className="flex items-center space-x-3 hover:text-[var(--primary)] transition-colors">
+                    {/* <div className="flex items-center space-x-3 hover:text-[var(--primary)] transition-colors">
                       <ShieldCheck className="h-5 w-5 text-[var(--primary)]" />
                       <span className="text-[var(--text-light)]">{event.certificate}</span>
-                    </div>
+                    </div> */}
                   </div>
                   
                   <div className="flex flex-wrap gap-4">
