@@ -17,6 +17,16 @@ export interface TeamHeads {
   marketing: TeamMember[];
   technical: TeamMember[];
   digital: TeamMember[];
+  cinematography: TeamMember[];
+  design: TeamMember[];
+  content: TeamMember[];
+  photography: TeamMember[];
+  videoEditing: TeamMember[];
+  soundDesign: TeamMember[];
+  eventManagement: TeamMember[];
+  PR: TeamMember[];
+  lead128: TeamMember[];
+  social: TeamMember[];
 }
 
 export interface CoreTeam {
@@ -31,4 +41,10 @@ export interface TeamData {
   founders: TeamMember[];
   seniorAdvisors: TeamMember[];
   coreTeam: CoreTeam;
+  cinematography: TeamMember[];         // ✅ New
+  social: {                              // ✅ New
+    pr: TeamMember;
+    socialMedia: TeamMember;
+  };
+  lead128: TeamMember;                  // ✅ New
 }

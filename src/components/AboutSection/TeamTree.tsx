@@ -23,6 +23,8 @@ interface TeamTreeProps {
         marketing: TeamMember;
         technical: TeamMember[];
         digital: TeamMember[];
+        cinematography: TeamMember[];
+        design: TeamMember[];
       };
     };
   };
@@ -96,6 +98,15 @@ export default function TeamTree({ data }: TeamTreeProps) {
             {data.coreTeam.heads.digital.map((head, index) => (
               <TeamMemberCard key={`digital-${index}`} member={head} />
             ))}
+          </div>
+
+          {/* Cinematography Heads */}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {data.coreTeam.heads.cinematography.map((head, index) => (
+              <TeamMemberCard key={`cinema-${index}`} member={head} />
+            ))}
+
           </div>
         </div>
       </motion.div>

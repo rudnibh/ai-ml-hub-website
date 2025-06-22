@@ -9,11 +9,10 @@ interface TeamSectionProps {
 }
 
 export function TeamSection({ data }: TeamSectionProps) {
-  // Combine all department heads except technical into a single array
   const departmentHeads = [
     ...data.coreTeam.heads.management.map(head => ({ ...head, department: 'Management' })),
     ...data.coreTeam.heads.marketing.map(head => ({ ...head, department: 'Marketing' })),
-    ...data.coreTeam.heads.digital.map(head => ({ ...head, department: 'Digital' }))
+    ...data.coreTeam.heads.digital.map(head => ({ ...head, department: 'Digital & Creative' })),
   ];
 
   return (
@@ -41,7 +40,7 @@ export function TeamSection({ data }: TeamSectionProps) {
       {/* Senior Advisors */}
       <div className="space-y-8">
         <GradientHeading>Senior Advisors</GradientHeading>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.seniorAdvisors.map((advisor, index) => (
             <TeamMemberCard key={index} member={advisor} />
           ))}
@@ -51,7 +50,7 @@ export function TeamSection({ data }: TeamSectionProps) {
       {/* Core Team */}
       <div className="space-y-12">
         <GradientHeading>Core Team</GradientHeading>
-        
+
         {/* Leadership */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <TeamMemberCard member={data.coreTeam.president} isHighlighted />
@@ -62,9 +61,8 @@ export function TeamSection({ data }: TeamSectionProps) {
         {/* Department Heads */}
         <div className="space-y-12">
           <GradientHeading>Department Heads</GradientHeading>
-          
-          {/* Management, Marketing, and Digital Heads in one row */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {departmentHeads.map((head, index) => (
               <div key={`dept-${index}`} className="flex flex-col">
                 <h4 className="text-2xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
@@ -78,13 +76,42 @@ export function TeamSection({ data }: TeamSectionProps) {
           {/* Technical Heads */}
           <div>
             <h4 className="text-2xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-              Technical
+              Technical Heads
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {data.coreTeam.heads.technical.map((head, index) => (
                 <TeamMemberCard key={`tech-${index}`} member={head} />
               ))}
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Cinematography Heads */}
+      <div className="space-y-8">
+        <GradientHeading>Cinematography Heads</GradientHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {data.cinematography.map((member, index) => (
+            <TeamMemberCard key={`cine-${index}`} member={member} />
+          ))}
+        </div>
+      </div>
+
+      {/* PR & Social Media */}
+      <div className="space-y-8">
+        <GradientHeading>PR & Social Media</GradientHeading>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <TeamMemberCard member={data.social.pr} />
+          <TeamMemberCard member={data.social.socialMedia} />
+        </div>
+      </div>
+
+      {/* 128 Lead */}
+      <div className="space-y-8">
+        <GradientHeading>128 Lead</GradientHeading>
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            <TeamMemberCard member={data.lead128} isHighlighted />
           </div>
         </div>
       </div>
