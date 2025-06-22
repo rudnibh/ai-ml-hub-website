@@ -20,7 +20,7 @@ const currentEvents = [
     whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
     //certificate: 'Certificates provided!',
     status: 'upcoming'
-  // }
+  }
 ];
 
 export function CurrentEvents() {
