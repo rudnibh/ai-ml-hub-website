@@ -11,7 +11,7 @@ export default function MainContent() {
   return (
     <main className="relative pt-20 z-0">
       <Hero />
-      {/* <UpcomingEvent /> */}
+      <UpcomingEvent />
       <Activities />
       <EventsSection />
       <ContactUs />

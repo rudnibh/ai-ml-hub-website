@@ -1,41 +1,41 @@
 import React from 'react';
 import { Container } from '../components/ui/Container';
 import { GradientHeading } from '../components/ui/GradientHeading';
-import { motion } from 'framer-motion';
-import { CurrentEvents } from '../components/EventsPage/CurrentEvents';
-import { PastEvents } from '../components/EventsPage/PastEvents';
+import EventCard from '../components/EventCard';
+import UpcomingEvent from '../components/UpcomingEvent'; 
+import { events } from '../data/events';
 
-export default function Events() {
+export default function EventsPage() {
+  const upcomingEvents = events.filter(e => e.status === 'upcoming' || e.status === 'ongoing');
+  const pastEvents = events.filter(e => e.status === 'past');
+
   return (
     <div className="min-h-screen pt-32 relative">
-      <Container withFade>
-        <section className="py-20">
-          <div className="flex flex-col items-center mb-12">
-            <motion.p 
-              className="text-[var(--primary)] font-medium mb-2 tracking-wide uppercase"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              Our Journey
-            </motion.p>
-            <GradientHeading align="center">Events & Activities</GradientHeading>
-            <motion.div 
-              className="max-w-3xl mx-auto text-center mt-4"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-lg text-[var(--text-dim)]">
-                Discover our upcoming workshops, competitions, and past achievements that showcase our commitment to AI/ML education and innovation.
-              </p>
-            </motion.div>
-          </div>
+      <Container>
+        <section id="upcoming-events" className="py-20">
+          <GradientHeading>Upcoming & Ongoing Events</GradientHeading>
+          {upcomingEvents.length > 0 ? (
+            <div className="space-y-12">
+              {upcomingEvents.map((event) => (
+                <UpcomingEvent key={event.title} event={event} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-[var(--text-dim)]">No upcoming events at the moment. Stay tuned!</p>
+          )}
+        </section>
 
-          <CurrentEvents />
-          <PastEvents />
+        <section id="past-events" className="py-20">
+          <GradientHeading>Past Events</GradientHeading>
+          {pastEvents.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {pastEvents.map((event) => (
+                <EventCard key={event.title} event={event} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-[var(--text-dim)]">No past events to show.</p>
+          )}
         </section>
       </Container>
     </div>

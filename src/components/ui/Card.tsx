@@ -55,8 +55,8 @@ export function Card({
       }}
     >
       <div className="relative z-10">
-        {children}
-      </div>
+      {children}
+    </div>
       
       {hovered && (
         <div className="absolute inset-0 overflow-hidden -z-10">

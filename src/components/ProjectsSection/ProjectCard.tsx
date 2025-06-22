@@ -61,8 +61,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       
       <div className="p-6 space-y-4">
         <h3 className="text-xl font-semibold text-white group-hover:text-[var(--primary)] transition-colors">
-          {project.title}
-        </h3>
+            {project.title}
+          </h3>
 
         <p className="text-[var(--text-dim)] line-clamp-3">{project.description}</p>
 

@@ -6,37 +6,36 @@ import Navbar from './components/Navbar';
 import ParticleBackground from './components/ParticleBackground';
 import MainContent from './components/MainContent';
 import About from './pages/About';
-import Events from './pages/Events';
 import Projects from './pages/Projects';
 import Achievements from './pages/achievements';
+import EventsPage from './pages/Events';
 import Chatbot from './components/Chatbot';
 import { chatbotService } from './services/chatbotService';
-
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [contentReady, setContentReady] = useState(false);
 
-useEffect(() => {
-  const contentTimer = setTimeout(() => {
-    setContentReady(true);
-  }, 3700);
+  useEffect(() => {
+    // Start showing content slightly before loading screen fades out
+    const contentTimer = setTimeout(() => {
+      setContentReady(true);
+    }, 3700); // 2500ms initial delay + 1200ms for transition start
 
-  const loadingTimer = setTimeout(() => {
-    setLoading(false);
-  }, 4000);
+    const loadingTimer = setTimeout(() => {
+      setLoading(false);
+    }, 4000); // Total animation duration
 
-  // 👇 Wake up Gemini AI backend
-  chatbotService.checkHealth().then((ok) => {
-    console.log("👋 Pinged AI backend:", ok ? "Online ✅" : "Offline ❌");
-  });
+    // 👇 Wake up Gemini AI backend
+    chatbotService.checkHealth().then((ok) => {
+      console.log("👋 Pinged AI backend:", ok ? "Online ✅" : "Offline ❌");
+    });
 
-  return () => {
-    clearTimeout(contentTimer);
-    clearTimeout(loadingTimer);
-  };
-}, []);
-
+    return () => {
+      clearTimeout(contentTimer);
+      clearTimeout(loadingTimer);
+    };
+  }, []);
 
   return (
     <Router>
@@ -60,8 +59,8 @@ useEffect(() => {
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/about" element={<About />} />
-            <Route path="/events" element={<Events />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="/achievements" element={<Achievements />} />
           </Routes>
           <footer className="relative glass-morphism mt-12 border-t border-purple-400/10 text-[var(--text-dim)] py-6 text-center">

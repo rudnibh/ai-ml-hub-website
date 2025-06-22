@@ -28,8 +28,8 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               <p className="text-lg text-[var(--text-dim)]">
-                Explore innovative projects created by our talented students, showcasing the practical application of AI and ML concepts.
-              </p>
+              Explore innovative projects created by our talented students, showcasing the practical application of AI and ML concepts.
+            </p>
             </motion.div>
           </div>
           <ProjectsSection />

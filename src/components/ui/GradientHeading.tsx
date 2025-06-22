@@ -41,7 +41,7 @@ export function GradientHeading({
       viewport={{ once: true }}
     >
       <Component className={allClasses}>
-        {children}
+      {children}
       </Component>
     </motion.div>
   );

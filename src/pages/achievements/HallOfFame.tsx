@@ -19,11 +19,11 @@ export function HallOfFame() {
           Our Star Graduates
         </motion.p>
         <GradientHeading align="center">
-          <div className="flex items-center justify-center gap-2">
+        <div className="flex items-center justify-center gap-2">
             <Trophy className="h-7 w-7 text-[var(--primary-light)]" />
-            Hall of Fame
-          </div>
-        </GradientHeading>
+          Hall of Fame
+        </div>
+      </GradientHeading>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -38,12 +38,12 @@ export function HallOfFame() {
             <Card variant="glass" className="group overflow-hidden h-full">
               <div className="relative aspect-[4/3] overflow-hidden rounded-t-xl">
                 <motion.img
-                  src={alumni.image}
-                  alt={alumni.name}
+                src={alumni.image}
+                alt={alumni.name}
                   className="w-full h-full object-cover object-[50%_35%]"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
-                />
+              />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-darker)]/90 via-[var(--bg-dark)]/60 to-transparent opacity-80" />
                 
                 <div className="absolute top-4 left-4 bg-[var(--primary)]/20 backdrop-blur-md border border-[var(--primary)]/20 rounded-full px-3 py-1 flex items-center">
@@ -71,10 +71,10 @@ export function HallOfFame() {
                     {alumni.name}
                   </h3>
                   <p className="text-[var(--primary)] font-medium mt-1">{alumni.achievement}</p>
-                </div>
+            </div>
                 <p className="text-[var(--text-dim)]">{alumni.description}</p>
-              </div>
-            </Card>
+            </div>
+          </Card>
           </motion.div>
         ))}
       </div>
