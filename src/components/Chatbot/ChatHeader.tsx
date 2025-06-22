@@ -20,7 +20,7 @@ export function ChatHeader({ onClose, onToggleSize, isExpanded, isOnline }: Chat
           }`} />
         </div>
         <div>
-          <h3 className="font-semibold text-[var(--text-light)]">AI/ML Hub Assistant</h3>
+          <h3 className="font-semibold text-[var(--text-light)]">AIMI - AI/ML Hub Virtual Assistant</h3>
           <p className="text-xs text-[var(--text-dim)]">
             {isOnline ? 'Online' : 'Offline'} • Ask me anything!
           </p>
