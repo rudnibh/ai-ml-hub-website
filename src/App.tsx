@@ -9,26 +9,33 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Achievements from './pages/achievements';
 import Chatbot from './components/Chatbot';
+import { chatbotService } from './services/chatbotService';
+
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [contentReady, setContentReady] = useState(false);
 
-  useEffect(() => {
-    // Start showing content slightly before loading screen fades out
-    const contentTimer = setTimeout(() => {
-      setContentReady(true);
-    }, 3700); // 2500ms initial delay + 1200ms for transition start
+useEffect(() => {
+  const contentTimer = setTimeout(() => {
+    setContentReady(true);
+  }, 3700);
 
-    const loadingTimer = setTimeout(() => {
-      setLoading(false);
-    }, 4000); // Total animation duration
+  const loadingTimer = setTimeout(() => {
+    setLoading(false);
+  }, 4000);
 
-    return () => {
-      clearTimeout(contentTimer);
-      clearTimeout(loadingTimer);
-    };
-  }, []);
+  // 👇 Wake up Gemini AI backend
+  chatbotService.checkHealth().then((ok) => {
+    console.log("👋 Pinged AI backend:", ok ? "Online ✅" : "Offline ❌");
+  });
+
+  return () => {
+    clearTimeout(contentTimer);
+    clearTimeout(loadingTimer);
+  };
+}, []);
+
 
   return (
     <Router>
