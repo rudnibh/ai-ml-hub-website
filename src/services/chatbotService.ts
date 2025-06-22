@@ -13,7 +13,7 @@ class ChatbotService {
 
   async sendMessage(message: string): Promise<ChatResponse> {
     try {
-      const response = await fetch(`${this.baseUrl}/chat`, {
+      const response = await fetch(`${this.baseUrl}chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
