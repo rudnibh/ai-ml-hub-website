@@ -43,7 +43,7 @@ class ChatbotService {
 
   async checkHealth(): Promise<boolean> {
     try {
-      const response = await fetch(`${this.baseUrl}/health`);
+      const response = await fetch(`${this.baseUrl}health`);
       return response.ok;
     } catch (error) {
       console.error('Health check failed:', error);
