@@ -8,13 +8,12 @@ class ChatbotService {
   private readonly baseUrl: string;
 
   constructor() {
-    // Use environment variable or fallback to the GitHub repository's API
-    this.baseUrl = import.meta.env.VITE_CHATBOT_API_URL || 'https://aimlhub-chatbot-api.onrender.com';
+    this.baseUrl = import.meta.env.VITE_CHATBOT_API_URL || 'http://localhost:8000'; // Fallback for dev
   }
 
   async sendMessage(message: string): Promise<ChatResponse> {
     try {
-      const response = await fetch(`https://aimlhub-chatbot.onrender.com/chat`, {
+      const response = await fetch(`${this.baseUrl}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,10 +33,8 @@ class ChatbotService {
       };
     } catch (error) {
       console.error('Chatbot API error:', error);
-      
-      // Fallback response when API is unavailable
       return {
-        response: "I'm currently experiencing technical difficulties. Please try again later or contact us directly through our social media channels.",
+        response: "I'm currently experiencing technical difficulties. Please try again later.",
         success: false,
         error: error instanceof Error ? error.message : 'Unknown error'
       };
@@ -46,12 +43,7 @@ class ChatbotService {
 
   async checkHealth(): Promise<boolean> {
     try {
-      const response = await fetch(`https://aimlhub-chatbot.onrender.com/health`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await fetch(`${this.baseUrl}/health`);
       return response.ok;
     } catch (error) {
       console.error('Health check failed:', error);
@@ -59,5 +51,6 @@ class ChatbotService {
     }
   }
 }
+
 
 export const chatbotService = new ChatbotService();
