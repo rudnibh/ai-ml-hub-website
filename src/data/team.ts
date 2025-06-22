@@ -88,10 +88,10 @@ export const teamData = {
       ],
       technical: [
         {
-          name: 'Sachin Mishra',
+          name: 'Arush Dwivedi',
           role: 'Technical Head',
           linkedinLink: '',
-          imageUrl: images.team.placeholders.TechnicalHead1,
+          imageUrl: images.team.placeholders.TechnicalHead3,
         },
         {
           name: 'Aditya Jain',
@@ -100,10 +100,10 @@ export const teamData = {
           imageUrl: images.team.placeholders.TechnicalHead2,
         },
         {
-          name: 'Arush Dwivedi',
+          name: 'Sachin Mishra',
           role: 'Technical Head',
           linkedinLink: '',
-          imageUrl: images.team.placeholders.TechnicalHead3,
+          imageUrl: images.team.placeholders.TechnicalHead1,
         },
         {
           name: 'Yashita Gogia',
