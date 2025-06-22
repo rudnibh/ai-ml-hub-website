@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import ParticleBackground from './components/ParticleBackground';
 import MainContent from './components/MainContent';
 import About from './pages/About';
+import Events from './pages/Events';
 import Projects from './pages/Projects';
 import Achievements from './pages/achievements';
 import Chatbot from './components/Chatbot';
@@ -59,6 +60,7 @@ useEffect(() => {
           <Routes>
             <Route path="/" element={<MainContent />} />
             <Route path="/about" element={<About />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/achievements" element={<Achievements />} />
           </Routes>
