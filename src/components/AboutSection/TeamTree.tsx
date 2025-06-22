@@ -18,6 +18,7 @@ interface TeamTreeProps {
       president: TeamMember;
       vicePresident: TeamMember;
       generalSecretary: TeamMember;
+      Treasurer: TeamMember;
       heads: {
         management: TeamMember;
         marketing: TeamMember;
@@ -74,15 +75,18 @@ export default function TeamTree({ data }: TeamTreeProps) {
           <h3 className="text-2xl font-bold text-center text-purple-400 mb-8">Core Team</h3>
           
           {/* President, VP, and Secretary Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <TeamMemberCard member={data.coreTeam.president} isHighlighted={true} />
             <TeamMemberCard member={data.coreTeam.vicePresident} isHighlighted={true} />
+            <TeamMemberCard member={data.coreTeam.Treasurer} isHighlighted={true} />
             <TeamMemberCard member={data.coreTeam.generalSecretary} isHighlighted={true} />
+            <TeamMemberCard member={data.coreTeam.heads.management} isHighlighted={true} />
+
           </div>
 
           {/* Department Heads */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <TeamMemberCard member={data.coreTeam.heads.management} />
+            
             <TeamMemberCard member={data.coreTeam.heads.marketing} />
           </div>
 

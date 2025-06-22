@@ -7,24 +7,35 @@ export const images = {
   team: {
     facultyAdvisor: 'https://i.ibb.co/QCQSkC6/png-1.png',
     placeholders: {
-      president: '/president.jpg',
-      Senior1: 'https://i.ibb.co/RYv4kHV/Whats-App-Image-2024-09-10-at-23-24-21.jpg',
-      Senior2: 'https://i.ibb.co/bQ7hTT9/png-3.png',
-      Senior3: 'https://i.ibb.co/DDNGm2G/png-2.png',
-      VicePresident: 'https://i.ibb.co/YXk55gF/IMG-20240829-WA0035.jpg',
-      Genralsec: 'https://i.ibb.co/4dw5jDY/PXL-20240119-190207229-PORTRAIT-2.jpg',
-      MangementHead: 'https://i.ibb.co/VqVh2M4/IMG-20240227-185149-488.jpg',
-      MarketingHead: 'https://i.ibb.co/vwVT0yq/sans-3-10-09-2024-0001-remastered-1.jpg',
+      president: '/Arpit_president.jpg',
+      Senior1: '/priyanshu_senior_advisor.jpg',
+      Senior2: '/Arsh_senior_advisor.jpg',
+      Senior3: '/senior3.jpg',
+      VicePresident: '/Aniket_vice_president.jpg',
+      Genralsec: '/Aarsh_General_secretory.jpg',
+      Treasurer: '/Pranav_tresurer.jpg',
+      MangementHead: '/Rajat_Management_head.jpg',
+      MarketingHead: '/saad_marketting_head.jpg',
 
-      TechnicalHead1: 'https://i.ibb.co/gykP7NF/IMG-20240910-WA0010.jpg',
-      TechnicalHead2: 'https://i.ibb.co/9rYCfLf/IMG-20231231-WA0064.jpg',
-      TechnicalHead3: 'https://i.ibb.co/ft1gzdh/Snapchat-1369988283.jpg',
-      TechnicalHead4: 'https://i.ibb.co/VBnfnxB/Screenshot-2024-09-11-18-53-36-44-99c04817c0de5652397fc8b56c3b3817.jpg',
-      TechnicalHead5: 'https://i.ibb.co/30trxJz/Picsart-24-06-24-01-15-06-909.jpg',
-      TechnicalHead6: 'https://i.ibb.co/rx2MM5q/IMG-20231224-132103.jpg',
+      TechnicalHead1: '/sachin_tech_head.jpg',
+      TechnicalHead2: '/Aditya_tech_head.jpg',
+      TechnicalHead3: '/Arush_tech_head.png',
+      TechnicalHead4: '/Yashita_tech_head.jpg',
+      TechnicalHead5: '/Swayam_tech_head.jpg',
+      TechnicalHead6: '/Rishu_Tech_head.jpg',
 
-      DigitalHead1: 'https://i.ibb.co/TTVtFFG/png.png',
-      DigitalHead2: 'https://i.ibb.co/ZcTYKnq/IMG-20240910-224907.jpg',
+      DigitalHead1: '/kritika_D&C.jpg',
+      DigitalHead2: '/Sneha_Goel.jpg',
+      DigitalHead3: '/Anvi_D&C.jpg',
+
+      cinematographyHead1: '/Samarth_cinema.jpg',
+      cinematographyHead2: '/Manasvi_cinema.jpg',
+
+      SocialMediaHead1: '/Siddharth_Social_media.jpg',
+      socialMediaHead2: '/Aditya_social.jpg',
+
+
+      Lead_128: '/Rashi_128leed.jpg',
       male1:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80',
 

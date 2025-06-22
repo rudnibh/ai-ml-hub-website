@@ -63,6 +63,12 @@ export const teamData = {
       linkedinLink: '',
       imageUrl: images.team.placeholders.Genralsec,
     },
+    Treasurer: {
+      name: 'Pranav Aggarwal',
+      role: 'Treasurer',
+      linkedinLink: '',
+      imageUrl: images.team.placeholders.Treasurer,
+    },
     heads: {
       management: [
         {
@@ -135,7 +141,7 @@ export const teamData = {
           name: 'Avni Rastogi',
           role: 'Digital & Creative Head',
           linkedinLink: '',
-          imageUrl: images.team.placeholders.female1,
+          imageUrl: images.team.placeholders.DigitalHead3,
         },
       ],
     },
@@ -145,13 +151,13 @@ export const teamData = {
       name: 'Samarth Ralph',
       role: 'Cinematography Head',
       linkedinLink: '',
-      imageUrl: images.team.placeholders.male2,
+      imageUrl: images.team.placeholders.cinematographyHead1,
     },
     {
       name: 'Manasvi Singh',
       role: 'Cinematography Head',
       linkedinLink: '',
-      imageUrl: images.team.placeholders.female2,
+      imageUrl: images.team.placeholders.cinematographyHead2,
     },
   ],
   social: {
@@ -159,19 +165,19 @@ export const teamData = {
       name: 'Aakarsh Shrivastava',
       role: 'PR Head',
       linkedinLink: '',
-      imageUrl: images.team.placeholders.male2,
+      imageUrl: images.team.placeholders.SocialMediaHead1,
     },
     socialMedia: {
       name: 'Aditya Kumar',
       role: 'Social Media Head',
       linkedinLink: '',
-      imageUrl: images.team.placeholders.male2
+      imageUrl: images.team.placeholders.socialMediaHead2,
     },
   },
   lead128: {
     name: 'Rashi Dwivedi',
     role: '128 Lead',
     linkedinLink: '',
-    imageUrl: images.team.placeholders.female3,
+    imageUrl: images.team.placeholders.Lead_128,
   },
 };

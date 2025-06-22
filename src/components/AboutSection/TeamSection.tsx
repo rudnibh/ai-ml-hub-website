@@ -52,10 +52,12 @@ export function TeamSection({ data }: TeamSectionProps) {
         <GradientHeading>Core Team</GradientHeading>
 
         {/* Leadership */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <TeamMemberCard member={data.coreTeam.president} isHighlighted />
           <TeamMemberCard member={data.coreTeam.vicePresident} isHighlighted />
+          <TeamMemberCard member={data.coreTeam.Treasurer} isHighlighted />
           <TeamMemberCard member={data.coreTeam.generalSecretary} isHighlighted />
+          
         </div>
 
         {/* Department Heads */}

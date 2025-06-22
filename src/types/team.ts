@@ -34,6 +34,7 @@ export interface CoreTeam {
   vicePresident: TeamMember;
   generalSecretary: TeamMember;
   heads: TeamHeads;
+  Treasurer: TeamMember;
 }
 
 export interface TeamData {
