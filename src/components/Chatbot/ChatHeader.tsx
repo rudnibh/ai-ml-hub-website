@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Minimize2, Maximize2 } from 'lucide-react';
-import { AimlLogo } from '../ui/AimlLogo';
+import chatbotLogo from '/chatbot.jpg';
 
 interface ChatHeaderProps {
   onClose: () => void;
@@ -14,7 +14,7 @@ export function ChatHeader({ onClose, onToggleSize, isExpanded, isOnline }: Chat
     <div className="flex items-center justify-between p-4 border-b border-[var(--primary)]/20 bg-gradient-to-r from-[var(--primary)]/10 to-[var(--secondary)]/10">
       <div className="flex items-center gap-3">
         <div className="relative">
-          <AimlLogo className="h-8 w-8" />
+          <img src={chatbotLogo} alt="AI/ML Hub Assistant" className="h-8 w-8 rounded-full" />
           <div className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2 border-[var(--bg-dark)] ${
             isOnline ? 'bg-green-500' : 'bg-gray-500'
           }`} />
