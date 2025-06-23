@@ -11,7 +11,8 @@ const pastEvents = [
     image: "gen.jpg",
     description: "Immersive workshop on Generative AI, RAG, AI agents, essential AI tools, and building your own AI-powered application!",
     location: "CL-1 (ABB 1)",
-    participants: "50+ students"
+    participants: "50+ students",
+    galleryUrl: " ",
   },
   {
     title: "Mindescape",
@@ -19,7 +20,8 @@ const pastEvents = [
     image: "mindescape.JPG",
     description: "Multiple AI based minigames where multiple teams compete against each other",
     location: "Main Campus",
-    participants: "100+ students"
+    participants: "100+ students",
+    galleryUrl: " "
   },
   {
     title: "Capturing Pics",
@@ -27,7 +29,8 @@ const pastEvents = [
     image: "capturingpics.JPG",
     description: "AI Powered Photobooth, Where people got their photos clicked and get back an AI generated Portrait of themselves",
     location: "Main Campus",
-    participants: "200+ photos"
+    participants: "200+ photos",
+    galleryUrl: " "
   },
   {
     title: "Prompt Crafting Competition",
@@ -35,7 +38,8 @@ const pastEvents = [
     image: "carnival.png",
     description: "Competition on Crafting beautiful prompts to leverage the power of Generative AI",
     location: "CS Building",
-    participants: "75+ students"
+    participants: "75+ students",
+    galleryUrl: " "
   },
   {
     title: "Hands on Machine Learning",
@@ -43,7 +47,8 @@ const pastEvents = [
     image: "https://i.ibb.co/JpM215x/first-class.jpg",
     description: "Weekly Hands on Machine Learning Classes",
     location: "Lab 1",
-    participants: "40+ students"
+    participants: "40+ students",
+    galleryUrl: " "
   },
   {
     title: "Orientation",
@@ -51,7 +56,8 @@ const pastEvents = [
     image: "https://i.ibb.co/3hqQsfp/orientation.jpg",
     description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence.",
     location: "LT 2",
-    participants: "150+ students"
+    participants: "150+ students",
+    galleryUrl: " "
   },
 ];
 

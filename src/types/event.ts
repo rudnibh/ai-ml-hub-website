@@ -10,4 +10,5 @@ export interface Event {
   certificate?: string;
   status: 'upcoming' | 'past' | 'ongoing';
   isFeatured?: boolean;
+  galleryUrl: " ";
 } 
