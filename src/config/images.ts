@@ -21,7 +21,7 @@ export const images = {
       TechnicalHead2: '/Aditya_tech_head.jpg',
       TechnicalHead3: '/Arush_tech_head.png',
       TechnicalHead4: '/Yashita_tech_head.jpg',
-      TechnicalHead5: '/Swayam_tech_head.jpg',
+      TechnicalHead5: '/swayam_tech_head.jpg',
       TechnicalHead6: '/Rishu_Tech_head.jpg',
 
       DigitalHead1: '/kritika_D&C.jpg',
@@ -31,10 +31,10 @@ export const images = {
       cinematographyHead1: '/Samarth_cinema.jpg',
       cinematographyHead2: '/Manasvi_cinema.jpg',
 
-      SocialMediaHead1: '/Siddharth_Social_media.jpg',
+      SocialMediaHead1: '/AAkasrsh_PR.jpg',
       socialMediaHead2: '/Aditya_social.jpg',
 
-
+      PRhead: 'AAkasrsh_PR.jpg',
       Lead_128: '/Rashi_128leed.jpg',
       male1:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80',
