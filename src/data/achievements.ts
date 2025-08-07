@@ -27,7 +27,7 @@ export const hallOfFame = [
       title: "International ML Competition Winners",
       description: "Pursuing masters in Santa Clara University in USA , Achieved a Microsoft SWE Offer",
       students: ["Aman Jain"],
-      image: "https://images.unsplash.com/photo-1553028826-f4804a6dba3b?auto=format&fit=crop&q=80",
+      image: "founder.jpeg",
       date: "March 2024"
     },
     {
@@ -41,7 +41,7 @@ export const hallOfFame = [
       title: "National Hackathon Winner",
       description: "Won first place consecutively in the Smart India Hackathon 2023 and 2022",
       students: ["Harsh Dhariwal"],
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80",
+      image: "harsh.jpeg",
       date: "December 2023 and 2022"
     }
   ];
