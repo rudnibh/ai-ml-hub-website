@@ -7,7 +7,6 @@ export default function Achievements() {
   return (
     <div className="min-h-screen pt-32 relative">
       <Container>
-        <HallOfFame />
         <StudentAchievements />
       </Container>
     </div>
