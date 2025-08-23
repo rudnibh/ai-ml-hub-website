@@ -11,6 +11,7 @@ import Achievements from './pages/achievements';
 import EventsPage from './pages/Events';
 import Chatbot from './components/Chatbot';
 import { chatbotService } from './services/chatbotService';
+import Footer from './components/Footer';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -63,9 +64,8 @@ export default function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/achievements" element={<Achievements />} />
           </Routes>
-          <footer className="relative glass-morphism mt-12 border-t border-purple-400/10 text-[var(--text-dim)] py-6 text-center">
-            <p>&copy; {new Date().getFullYear()} AI/ML HUB. All rights reserved.</p>
-          </footer>
+          
+          <Footer />
           
           {/* Global Chatbot - Available on all pages */}
           <Chatbot />
