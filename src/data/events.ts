@@ -11,7 +11,7 @@ export const events: Event[] = [
     registrationLink: '',
     whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
     //certificate: 'Certificates provided!',
-    status: 'Upcoming',
+    status: 'ongoing',
     isFeatured: true,
   },
   {
