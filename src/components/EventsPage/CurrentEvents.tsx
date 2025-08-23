@@ -10,16 +10,16 @@ import { GradientHeading } from '../ui/GradientHeading';
 const currentEvents = [
   // Uncomment and modify when you have upcoming events
   {
-    title: 'Applications Open | Join the AI/ML Hub as a Volunteer!',
-    date: 'Deadline: 27th June 2025',
+    title: 'Orientaion of the AI/ML Hub | Join Us to deep dive in the world of AI and Machine Learning',
+    date: '27th August 2025',
     //time: '5:00 PM - 7:00 PM',
     //location: 'CL-1 (ABB 1)',
     description: 'Are you passionate about technology? Curious about the world of Artificial Intelligence and Machine Learning? Eager to be part of a vibrant, innovative, and future-driven community? If yes — this is your chance!',
-    imageUrl: 'currentEvent.jpg',
-    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeV-s327DweqnfurzsRRTUN0NyAXwv7yEuOj2RearXsewjI0w/viewform?usp=sharing&ouid=113006706481846438271',
+    imageUrl: 'roboto.png',
+    registrationLink: '',
     whatsappLink: 'https://chat.whatsapp.com/FRsxniPp9dj0MN312alqXH',
     //certificate: 'Certificates provided!',
-    status: 'Ongoing'
+    status: 'Soon'
   }
 ];
 
