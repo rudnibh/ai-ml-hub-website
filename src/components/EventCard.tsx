@@ -42,14 +42,14 @@ export default function EventCard({ event }: EventCardProps) {
               </h3>
               <p className="text-[var(--text-dim)] mb-4 line-clamp-2">{event.description}</p>
 
-              <motion.button
+              {/* <motion.button
                 className="text-[var(--primary)] flex items-center text-sm font-medium hover:underline"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
                 onClick={() => setFlipped(true)}
               >
                 View Gallery <ArrowRight className="h-3 w-3 ml-1" />
-              </motion.button>
+              </motion.button> */}
             </div>
           </Card>
         </div>

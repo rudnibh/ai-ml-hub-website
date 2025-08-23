@@ -13,6 +13,7 @@ export const events: Event[] = [
     //certificate: 'Certificates provided!',
     status: 'upcoming',
     isFeatured: true,
+    galleryUrl: " ",
   },
   {
     title: "GENESIS : Introduction to Gen-AI",
@@ -20,6 +21,7 @@ export const events: Event[] = [
     imageUrl: "gen.jpg",
     description: "Immersive workshop on Generative AI, RAG, AI agents, essential AI tools, and building your own AI-powered application!",
     status: 'past',
+    galleryUrl: " ",
   },
   {
     title: "Mindescape",
@@ -27,6 +29,7 @@ export const events: Event[] = [
     description: "Multiple AI based minigames where multiple teams compete against each other",
     imageUrl: "/mindescape.JPG",
     status: 'past',
+    galleryUrl: " ",
   },
   {
     title: "Capturing Pics",
@@ -34,6 +37,7 @@ export const events: Event[] = [
     description: "AI Powered Photobooth, Where people got their photos clicked and get back an AI generated Potrait of themselves",
     imageUrl: "/capturingpics.JPG",
     status: 'past',
+    galleryUrl: " ",
   },
   {
     title: "Prompt Crafting Competetion",
@@ -41,6 +45,7 @@ export const events: Event[] = [
     description: "Competition on Crafting beautiful prompts to leverage the power of Generative AI",
     imageUrl: "/carnival.png",
     status: 'past',
+    galleryUrl: " ",
   },
   {
     title: "Hands on Machine Learning",
@@ -48,6 +53,7 @@ export const events: Event[] = [
     description: "Weekly Hands on Machine Learning Classes",
     imageUrl: "https://i.ibb.co/JpM215x/first-class.jpg",
     status: 'past',
+    galleryUrl: " ",
   },
   {
     title: "Orientation",
@@ -55,5 +61,6 @@ export const events: Event[] = [
     description: "Brief Overview and introduction to Machine Learning and Artificial Intelligence.",
     imageUrl: "https://i.ibb.co/3hqQsfp/orientation.jpg",
     status: 'past',
+    galleryUrl: " ",
   },
 ];
