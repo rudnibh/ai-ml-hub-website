@@ -6,17 +6,20 @@ const contributors = [
   {
     name: 'Harsimran Singh',
     role: 'Developer',
-    icon:  " " ,
+    icon:  " ",
+    linkedin: "https://www.linkedin.com/in/harsimran-singh-6b9aaa303/",
   },
   {
     name: 'Agnibha Nanda',
     role: 'Developer',
-    icon:  " " ,
+    icon:  " ",
+    linkedin: "https://www.linkedin.com/in/agnibha-nanda-2b92931b9/",
   },
   {
     name: 'Aarnya Jain',
     role: ' Developer',
     icon:  " ",
+    linkedin: "https://www.linkedin.com/in/aarnya-jain-5563b3315/",
   },
 ];
 
@@ -34,15 +37,21 @@ export default function Footer() {
           
           <div className="flex flex-wrap justify-center gap-4">
             {contributors.map((contributor, index) => (
-              <HoverBorderGradient
+              <a
                 key={index}
-                containerClassName="rounded-full"
-                as="div"
-                className="bg-gray-900 text-white flex items-center space-x-2 px-6 py-3 cursor-pointer transition-all duration-300 hover:scale-105"
+                href={contributor.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {contributor.icon}
-                <span className="font-medium">{contributor.name}</span>
-              </HoverBorderGradient>
+                <HoverBorderGradient
+                  containerClassName="rounded-full"
+                  as="div"
+                  className="bg-gray-900 text-white flex items-center space-x-2 px-6 py-3 cursor-pointer transition-all duration-300 hover:scale-105"
+                >
+                  {contributor.icon}
+                  <span className="font-medium">{contributor.name}</span>
+                </HoverBorderGradient>
+              </a>
             ))}
           </div>
         </div>

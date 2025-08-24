@@ -24,17 +24,17 @@ export default function Hero() {
       {/* Main Content */}
       <div className="relative w-full max-w-6xl mx-auto px-4 py-16 flex flex-col items-center">
         {/* Logo Section */}
-        <div className="relative mb-8">
+        <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full blur-[100px] opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-          <AimlLogo className="h-42 w-42 text-[var(--primary)] animate-float" />
+          <AimlLogo className="h-42 w-42 text-[var(--primary)] animate-float p-0" />
         </div>
 
         {/* Title and Description */}
-        <div className="text-center max-w-3xl mb-8">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-light)] to-[var(--secondary)] animate-gradient">
+        <div className="text-center max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary-light)] to-[var(--secondary)] animate-gradient -mt-16">
             AI/ML HUB
           </h1>
-          <p className="text-lg text-[var(--text-dim)]">
+          <p className="text-lg text-[var(--text-dim)] mt-4 mb-4">
             Welcome to the AIML Hub at JIIT! A space for innovation, learning, and
             collaboration in Artificial Intelligence and Machine Learning.
           </p>
@@ -74,12 +74,12 @@ export default function Hero() {
 
         {/* Connect Button */}
         <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow "></div>
           <button 
             onClick={() => setIsSocialOpen(true)}
             className="relative px-8 py-3 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-white rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[var(--primary)]/25"
           >
-            <span className="flex items-center">
+            <span className="flex items-center ">
               Connect With Us
               <Users className="ml-2 h-5 w-5 animate-pulse" />
             </span>
