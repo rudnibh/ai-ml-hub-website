@@ -22,11 +22,11 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative w-full max-w-6xl mx-auto px-4 py-16 flex flex-col items-center">
+      <div className="relative w-full max-w-6xl mx-auto px-4 py-16 flex flex-col items-center -mt-24">
         {/* Logo Section */}
         <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-full blur-[100px] opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse-slow"></div>
-          <AimlLogo className="h-42 w-42 text-[var(--primary)] animate-float p-0" />
+          <AimlLogo className="h-38 w-38 text-[var(--primary)] animate-float p-0" />
         </div>
 
         {/* Title and Description */}
