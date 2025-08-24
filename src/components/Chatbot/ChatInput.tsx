@@ -42,7 +42,7 @@ export function ChatInput({ onSendMessage, isLoading, disabled = false }: ChatIn
             console.log("✍️ Typing:", e.target.value);
           }}
           onKeyPress={handleKeyPress}
-          placeholder="Ask me anything about AI/ML Hub..."
+          placeholder="Ask me anything..."
           disabled={disabled || isLoading}
           rows={1}
           className="w-full px-4 py-3 bg-[#1E1B4B]/30 border border-[var(--primary)]/20 rounded-xl text-[var(--text-light)] placeholder-[var(--text-dim)] focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all duration-300 resize-none disabled:opacity-50 disabled:cursor-not-allowed"
