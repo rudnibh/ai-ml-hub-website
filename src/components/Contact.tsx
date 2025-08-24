@@ -22,7 +22,23 @@ const TwitterIcon = ({ className }) => (
   </svg>
 );
 
-// Floating Dock Component
+const LinktreeIcon = ({ size = 26, color = "green", ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={(size * 26) / 36} // keep original aspect ratio
+    viewBox="0 0 36 26"
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M19.881 6.34096L24.2196 1.88105L26.7378 4.45991L22.1869 8.79846H28.5885V12.3785H22.1565L26.7378 16.8283L24.2196 19.3566L18 13.1067L11.7804 19.3566L9.26221 16.8384L13.8435 12.3886H7.4115V8.79846H13.8131L9.26221 4.45991L11.7804 1.88105L16.1189 6.34096V0H19.881V6.34096ZM16.1189 17.5059H19.881V26.001H16.1189V17.5059Z"
+      fill={color}
+    />
+  </svg>
+);
+
+// oating Dock Component
 const FloatingDock = ({ items, className = "" }) => {
   const mouseX = useMotionValue(Infinity);
 
@@ -62,7 +78,7 @@ const DockIcon = ({ mouseX, title, icon, href }) => {
       title={title}
     >
       <motion.div
-        style={{ 
+        style={{
           width: useTransform(width, (w) => w * 0.6),
           height: useTransform(width, (w) => w * 0.6)
         }}
@@ -70,7 +86,7 @@ const DockIcon = ({ mouseX, title, icon, href }) => {
       >
         {icon}
       </motion.div>
-      
+
       {/* Tooltip */}
       <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
         {title}
@@ -95,12 +111,17 @@ export default function Contact() {
     {
       title: "Our Twitter",
       icon: <TwitterIcon className="h-full w-full text-sky-400" />,
-      href: "#",
+      href: "https://x.com/AimlJiit",
     },
     {
       title: "Our Instagram",
       icon: <Instagram className="h-full w-full text-pink-400" />,
       href: "https://www.instagram.com/aiml.jiit",
+    },
+    {
+      title: "Our Linktree",
+      icon: <LinktreeIcon className="h-full w-full text-pink-400" />,
+      href: "https://linktr.ee/AIMLJIIT",
     },
     {
       title: "Our WhatsApp",
