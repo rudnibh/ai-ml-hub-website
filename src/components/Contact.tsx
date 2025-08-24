@@ -129,7 +129,7 @@ export default function Contact() {
               Let's Connect
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Join our community and stay updated with the latest in AI and Machine Learning
+              Join our community and stay updated with the latest innovations in Artifical Intelligence and Machine Learning
             </p>
           </motion.div>
 
