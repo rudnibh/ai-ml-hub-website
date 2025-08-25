@@ -4,8 +4,8 @@ export const events: Event[] = [
   {
     title: 'Orientation of the AI/ML Hub | Join Us to deep dive in the world of AI and Machine Learning',
     date: '27th August 2025',
-    //time: '5:00 PM - 7:00 PM',
-    //location: 'CL-1 (ABB 1)',
+    time: '5:00 PM - 7:00 PM',
+    location: 'LT-3 (ABB 1)',
     description: 'Are you passionate about technology? Curious about the world of Artificial Intelligence and Machine Learning? Eager to be part of a vibrant, innovative, and future-driven community? If yes — this is your chance!',
     imageUrl: 'roboto.png',
     registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScmIQ5uEz5muSAqcVjdnYzYxGMYu8KCAvZiKkrgzWwoZuIwjg/viewform',
