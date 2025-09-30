@@ -16,7 +16,37 @@ export const hallOfFame = [
   ];
   
   export const studentAchievements = [
-        {
+      {
+      title: "GenAI Engineer at Nugget - Zomato",
+      description: "Got placed at Nugget with one of the highest packages of their year",
+      students: ["Rudroneel Sengupta"],
+      image: "rudroneel.jpeg",
+      date: "July 2025"
+    },
+    {
+      title: "GenAI Engineer at Nugget - Zomato",
+      description: "Got placed at Nugget with one of the highest packages of their year",
+      students: ["Manya Gangoli"],
+      image: "manya.jpeg",
+      date: "July 2025"
+    },
+    
+    {
+      "title": "Full Stack AI Engineer at AI Planet",
+      "description": "Contributing to a Belgian AI startup by building scalable full-stack solutions and deploying high-quality AI-driven applications.",
+      "students": ["Yash Malik"],
+      "image": "yash.jpeg",
+      "date": "Jan 2025"
+    },
+      
+    {
+      "title": "Software Development Intern at SITG",
+      "description": "Driving innovation in RAG and Knowledge Graphs while building intelligent software solutions.",
+      "students": ["Arsh Gupta"],
+      "image": "arsh.jpeg",
+      "date": "Dec 2024"
+    },
+    {
       title: "Google Girl Hackathon Winner",
       description: "Won the Google Girl Hackathon runner up (2nd position) A total of 34000+ students from 3500+ colleges participated in this Hackathon.Received a total reward of Rs 1 Lakh.",
       students: ["Manya Jindal"],
@@ -44,32 +74,6 @@ export const hallOfFame = [
       image: "harsh.jpeg",
       date: "December 2023 and 2022"
     },
-    {
-      "title": "Full Stack AI Engineer at AI Planet",
-      "description": "Contributing to a Belgian AI startup by building scalable full-stack solutions and deploying high-quality AI-driven applications.",
-      "students": ["Yash Malik"],
-      "image": "yash.jpeg",
-      "date": "Jan 2025"
-    },
-    {
-      title: "GenAI Engineer at Nugget - Zomato",
-      description: "Got placed at Nugget with one of the highest packages of their year",
-      students: ["Rudroneel Sengupta"],
-      image: "rudroneel.jpeg",
-      date: "July 2025"
-    },
-    {
-      title: "GenAI Engineer at Nugget - Zomato",
-      description: "Got placed at Nugget with one of the highest packages of their year",
-      students: ["Manya Gangoli"],
-      image: "manya.jpeg",
-      date: "July 2025"
-    },
-    {
-      "title": "Software Development Intern at SITG",
-      "description": "Driving innovation in RAG and Knowledge Graphs while building intelligent software solutions.",
-      "students": ["Arsh Gupta"],
-      "image": "arsh.jpeg",
-      "date": "Dec 2024"
-    }  
+    
+    
   ];
