@@ -43,5 +43,33 @@ export const hallOfFame = [
       students: ["Harsh Dhariwal"],
       image: "harsh.jpeg",
       date: "December 2023 and 2022"
-    }
+    },
+    {
+      "title": "Full Stack AI Engineer at AI Planet",
+      "description": "Contributing to a Belgian AI startup by building scalable full-stack solutions and deploying high-quality AI-driven applications.",
+      "students": ["Yash Malik"],
+      "image": "yash.jpeg",
+      "date": "Jan 2025"
+    },
+    {
+      title: "GenAI Engineer at Nugget - Zomato",
+      description: "Got placed at Nugget with one of the highest packages of their year",
+      students: ["Rudroneel Sengupta"],
+      image: "rudroneel.jpeg",
+      date: "July 2025"
+    },
+    {
+      title: "GenAI Engineer at Nugget - Zomato",
+      description: "Got placed at Nugget with one of the highest packages of their year",
+      students: ["Manya Gangoli"],
+      image: "manya.jpeg",
+      date: "July 2025"
+    },
+    {
+      "title": "Software Development Intern at SITG",
+      "description": "Driving innovation in RAG and Knowledge Graphs while building intelligent software solutions.",
+      "students": ["Arsh Gupta"],
+      "image": "arsh.jpeg",
+      "date": "Dec 2024"
+    }  
   ];
